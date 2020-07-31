@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Closelink API
+
+This is the documentation of the public Closelink API. For now it contains all routes to manage Stocks and Schedules for specific vessels.
+
+OpenAPI spec version: v1
+Contact: service@closelink.net
+-->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="nunit" Version="3.12.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.6.1" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.9.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CloselinkAPI\CloselinkAPI.csproj">
+      <Project>{944B2360-4C3F-49DB-BDB8-23EB5E229337}</Project>
+      <Name>CloselinkAPI</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>
+
