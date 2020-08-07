@@ -90,7 +90,7 @@ namespace CloselinkAPI.Api
             set { _exceptionFactory = value; }
         }
 
-
+//TODO rename to Create
         public ApiResponse< List<Stock> > PostStocks (List<Stock> body)
         {
             var localVarPath = "/v1/stock";

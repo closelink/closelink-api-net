@@ -161,7 +161,7 @@ namespace CloselinkAPI.Api
         }
 
 
-        public ApiResponse<List<Schedule>> Create(List<Schedule> body = null)
+        public ApiResponse<List<Schedule>> Create(List<Schedule> body)
         {
             var localVarPath = "/v1/schedule";
             var localVarPathParams = new Dictionary<String, String>();
@@ -198,7 +198,7 @@ namespace CloselinkAPI.Api
 
 
 
-        public async System.Threading.Tasks.Task<ApiResponse<List<Schedule>>> CreateAsync(List<Schedule> body = null)
+        public async System.Threading.Tasks.Task<ApiResponse<List<Schedule>>> CreateAsync(List<Schedule> body)
         {
 
             var localVarPath = "/v1/schedule";
@@ -397,7 +397,7 @@ namespace CloselinkAPI.Api
                 (List<Schedule>)this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<Schedule>)));
         }
 
-        public ApiResponse<List<Schedule>> Update(List<Schedule> body = null)
+        public ApiResponse<List<Schedule>> Update(List<Schedule> body)
         {
 
             var localVarPath = "/v1/schedule";
@@ -436,7 +436,7 @@ namespace CloselinkAPI.Api
         }
 
 
-        public async System.Threading.Tasks.Task<ApiResponse<List<Schedule>>> UpdateAsync(List<Schedule> body = null)
+        public async System.Threading.Tasks.Task<ApiResponse<List<Schedule>>> UpdateAsync(List<Schedule> body)
         {
 
             var localVarPath = "/v1/schedule";
