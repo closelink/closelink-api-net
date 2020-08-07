@@ -1,4 +1,4 @@
-# CloselinkAPI.Api.ScheduleApi
+# IO.Swagger.Api.ScheduleApi
 
 All URIs are relative to *https://public-api.closelink.net*
 
@@ -7,7 +7,6 @@ Method | HTTP request | Description
 [**Create**](ScheduleApi.md#create) | **POST** /v1/schedule | Creates new Schedules
 [**Get**](ScheduleApi.md#get) | **GET** /v1/schedule/{scheduleId} | Finds a Schedule by id
 [**GetList**](ScheduleApi.md#getlist) | **GET** /v1/schedule/list | Finds a List of Schedules
-[**GetPage**](ScheduleApi.md#getpage) | **GET** /v1/schedule | Finds a Page of Schedules
 [**Update**](ScheduleApi.md#update) | **PUT** /v1/schedule | Updates future Schedules (Overrides all future Schedules)
 
 
@@ -21,9 +20,9 @@ Creates new Schedules
 ```csharp
 using System;
 using System.Diagnostics;
-using CloselinkAPI.Api;
-using CloselinkAPI.Client;
-using CloselinkAPI.Model;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
 
 namespace Example
 {
@@ -85,9 +84,9 @@ Finds a Schedule by id
 ```csharp
 using System;
 using System.Diagnostics;
-using CloselinkAPI.Api;
-using CloselinkAPI.Client;
-using CloselinkAPI.Model;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
 
 namespace Example
 {
@@ -141,7 +140,7 @@ Name | Type | Description  | Notes
 
 <a name="getlist"></a>
 # **GetList**
-> List<Schedule> GetList (int? page = null, string imo = null, DateTime? etaFrom = null, DateTime? etaTo = null)
+> List<Schedule> GetList (string imo = null, DateTime? etaFrom = null, DateTime? etaTo = null)
 
 Finds a List of Schedules
 
@@ -149,9 +148,9 @@ Finds a List of Schedules
 ```csharp
 using System;
 using System.Diagnostics;
-using CloselinkAPI.Api;
-using CloselinkAPI.Client;
-using CloselinkAPI.Model;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
 
 namespace Example
 {
@@ -165,7 +164,6 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("apikey", "Bearer");
 
             var apiInstance = new ScheduleApi();
-            var page = 56;  // int? | Requested Page number (optional) 
             var imo = imo_example;  // string | Optional imo filter (optional) 
             var etaFrom = 2013-10-20T19:20:30+01:00;  // DateTime? | Optional eta from date filter (optional) 
             var etaTo = 2013-10-20T19:20:30+01:00;  // DateTime? | Optional eta to date filter (optional) 
@@ -173,7 +171,7 @@ namespace Example
             try
             {
                 // Finds a List of Schedules
-                List&lt;Schedule&gt; result = apiInstance.GetList(page, imo, etaFrom, etaTo);
+                List&lt;Schedule&gt; result = apiInstance.GetList(imo, etaFrom, etaTo);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -189,7 +187,6 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int?**| Requested Page number | [optional] 
  **imo** | **string**| Optional imo filter | [optional] 
  **etaFrom** | **DateTime?**| Optional eta from date filter | [optional] 
  **etaTo** | **DateTime?**| Optional eta to date filter | [optional] 
@@ -197,76 +194,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**List<Schedule>**](Schedule.md)
-
-### Authorization
-
-[apikey](../README.md#apikey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, application/xml
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="getpage"></a>
-# **GetPage**
-> Page GetPage (int? page = null, string imo = null, DateTime? etaFrom = null, DateTime? etaTo = null)
-
-Finds a Page of Schedules
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using CloselinkAPI.Api;
-using CloselinkAPI.Client;
-using CloselinkAPI.Model;
-
-namespace Example
-{
-    public class GetPageExample
-    {
-        public void main()
-        {
-            // Configure API key authorization: apikey
-            Configuration.Default.AddApiKey("apikey", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("apikey", "Bearer");
-
-            var apiInstance = new ScheduleApi();
-            var page = 56;  // int? | Requested Page number (optional) 
-            var imo = imo_example;  // string | Optional imo filter (optional) 
-            var etaFrom = 2013-10-20T19:20:30+01:00;  // DateTime? | Optional eta from date filter (optional) 
-            var etaTo = 2013-10-20T19:20:30+01:00;  // DateTime? | Optional eta to date filter (optional) 
-
-            try
-            {
-                // Finds a Page of Schedules
-                Page result = apiInstance.GetPage(page, imo, etaFrom, etaTo);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling ScheduleApi.GetPage: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **page** | **int?**| Requested Page number | [optional] 
- **imo** | **string**| Optional imo filter | [optional] 
- **etaFrom** | **DateTime?**| Optional eta from date filter | [optional] 
- **etaTo** | **DateTime?**| Optional eta to date filter | [optional] 
-
-### Return type
-
-[**Page**](Page.md)
 
 ### Authorization
 
@@ -289,9 +216,9 @@ Updates future Schedules (Overrides all future Schedules)
 ```csharp
 using System;
 using System.Diagnostics;
-using CloselinkAPI.Api;
-using CloselinkAPI.Client;
-using CloselinkAPI.Model;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
 
 namespace Example
 {

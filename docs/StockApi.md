@@ -1,4 +1,4 @@
-# CloselinkAPI.Api.StockApi
+# IO.Swagger.Api.StockApi
 
 All URIs are relative to *https://public-api.closelink.net*
 
@@ -17,9 +17,9 @@ Creates new Stock data
 ```csharp
 using System;
 using System.Diagnostics;
-using CloselinkAPI.Api;
-using CloselinkAPI.Client;
-using CloselinkAPI.Model;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
 
 namespace Example
 {

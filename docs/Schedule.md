@@ -1,4 +1,4 @@
-# CloselinkAPI.Model.Schedule
+# IO.Swagger.Model.Schedule
 ## Properties
 
 Name | Type | Description | Notes
@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **DateUpdated** | **DateTime?** | The date-time the object was last updated (read-only) | [optional] 
 **CustomerId** | **string** | Internal customerId (read-only) | [optional] 
 **Imo** | **string** | The imo of the vessel | 
-**Eta** | **DateTime?** | The estimated time of arrival | 
-**Etd** | **DateTime?** | The estimated time of departure | 
+**Eta** | **DateTime** | The estimated time of arrival | 
+**Etd** | **DateTime** | The estimated time of departure | 
 **Locode** | **string** | The locode of the port | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
