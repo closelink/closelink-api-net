@@ -30,7 +30,7 @@ namespace CloselinkAPI.Test
         }
         
         [Test]
-        public void CreateStocksTest()
+        public void CreateTest()
         {
             var stocks = new List<Stock>(){
                 new Stock(
@@ -64,7 +64,7 @@ namespace CloselinkAPI.Test
                                                            ).Returns(new RestResponse { StatusCode = HttpStatusCode.OK , Content = stockJsonString});
 
 
-            var response = instance.CreateStocks(stocks);
+            var response = instance.Create(stocks);
 
 
             Assert.AreEqual(HttpStatusCode.OK, (HttpStatusCode) response.StatusCode);
@@ -72,7 +72,7 @@ namespace CloselinkAPI.Test
         }
 
         [Test]
-        public void CreateStocksFailTest()
+        public void CreateFailTest()
         {
             var stocks = new List<Stock>(){
                 new Stock(
@@ -106,11 +106,11 @@ namespace CloselinkAPI.Test
                                                            ).Returns(new RestResponse { StatusCode = HttpStatusCode.Forbidden});
 
 
-            Assert.Throws<ApiException>(() => instance.CreateStocks(stocks));
+            Assert.Throws<ApiException>(() => instance.Create(stocks));
         }
 
         [Test]
-        public async Task CreateStocksAsyncTest()
+        public async Task CreateAsyncTest()
         {
             List<Stock> stocks = new List<Stock>(){
                 new Stock(
@@ -144,7 +144,7 @@ namespace CloselinkAPI.Test
                                                            ).Returns(Task.FromResult((object) new RestResponse { StatusCode = HttpStatusCode.OK , Content = stockJsonString}));
 
 
-            var response = await instance.CreateStocksAsync(stocks);
+            var response = await instance.CreateAsync(stocks);
 
             Assert.AreEqual(HttpStatusCode.OK, (HttpStatusCode) response.StatusCode);
             Assert.AreEqual(stocks, response.Data);
