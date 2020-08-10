@@ -69,7 +69,7 @@ Class | Method | HTTP request | Description
 *ScheduleApi* | [**GetList**](docs/ScheduleApi.md#getlist) | **GET** /v1/schedule/list | Finds a List of Schedules
 *ScheduleApi* | [**GetPage**](docs/ScheduleApi.md#getpage) | **GET** /v1/schedule | Finds a Page of Schedules
 *ScheduleApi* | [**Update**](docs/ScheduleApi.md#update) | **PUT** /v1/schedule | Updates future Schedules (Overrides all future Schedules)
-*StockApi* | [**PostStocks**](docs/StockApi.md#poststocks) | **POST** /v1/stock | Creates new Stock data
+*StockApi* | [**CreateStocks**](docs/StockApi.md#createstocks) | **POST** /v1/stock | Creates new Stock data
 
 
 <a name="documentation-for-models"></a>
