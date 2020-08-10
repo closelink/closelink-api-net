@@ -20,7 +20,7 @@ namespace CloselinkAPI.Api
         /// <exception cref="CloselinkAPI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"> (optional)</param>
         /// <returns>ApiResponse of List&lt;Stock&gt;</returns>
-        ApiResponse<List<Stock>> PostStocks (List<Stock> body = null);
+        ApiResponse<List<Stock>> CreateStocks (List<Stock> body = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         
@@ -33,7 +33,7 @@ namespace CloselinkAPI.Api
         /// <exception cref="CloselinkAPI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"> (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;Stock&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Stock>>> PostStocksAsync (List<Stock> body = null);
+        System.Threading.Tasks.Task<ApiResponse<List<Stock>>> CreateStocksAsync (List<Stock> body = null);
         #endregion Asynchronous Operations
     }
 
@@ -89,9 +89,8 @@ namespace CloselinkAPI.Api
             }
             set { _exceptionFactory = value; }
         }
-
-//TODO rename to Create
-        public ApiResponse< List<Stock> > PostStocks (List<Stock> body)
+        
+        public ApiResponse< List<Stock> > CreateStocks (List<Stock> body)
         {
             var localVarPath = "/v1/stock";
             var localVarPathParams = new Dictionary<String, String>();
@@ -117,7 +116,7 @@ namespace CloselinkAPI.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("PostStocks", localVarResponse);
+                Exception exception = ExceptionFactory("CreateStocks", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -127,7 +126,7 @@ namespace CloselinkAPI.Api
         }
 
         
-        public async System.Threading.Tasks.Task<ApiResponse<List<Stock>>> PostStocksAsync (List<Stock> body)
+        public async System.Threading.Tasks.Task<ApiResponse<List<Stock>>> CreateStocksAsync (List<Stock> body)
         {
             var localVarPath = "/v1/stock";
             var localVarPathParams = new Dictionary<String, String>();
@@ -153,7 +152,7 @@ namespace CloselinkAPI.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("PostStocks", localVarResponse);
+                Exception exception = ExceptionFactory("CreateStocks", localVarResponse);
                 if (exception != null) throw exception;
             }
 

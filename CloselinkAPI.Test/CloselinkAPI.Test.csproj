@@ -1,12 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-Closelink API
-
-This is the documentation of the public Closelink API. For now it contains all routes to manage Stocks and Schedules for specific vessels.
-
-OpenAPI spec version: v1
-Contact: service@closelink.net
--->
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>

@@ -4,12 +4,12 @@ All URIs are relative to *https://public-api.closelink.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**PostStocks**](StockApi.md#poststocks) | **POST** /v1/stock | Creates new Stock data
+[**CreateStocks**](StockApi.md#createstocks) | **POST** /v1/stock | Creates new Stock data
 
 
-<a name="poststocks"></a>
-# **PostStocks**
-> List<Stock> PostStocks (List<Stock> body = null)
+<a name="createstocks"></a>
+# **CreateStocks**
+> List<Stock> CreateStocks (List<Stock> body = null)
 
 Creates new Stock data
 
@@ -23,14 +23,12 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class PostStocksExample
+    public class CreateStocksExample
     {
         public void main()
         {
             // Configure API key authorization: apikey
-            Configuration.Default.AddApiKey("apikey", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("apikey", "Bearer");
+            Configuration.Default.setApiKey("YOUR_API_KEY");
 
             var apiInstance = new StockApi();
             var body = new List<Stock>(); // List<Stock> |  (optional) 
@@ -38,12 +36,12 @@ namespace Example
             try
             {
                 // Creates new Stock data
-                List&lt;Stock&gt; result = apiInstance.PostStocks(body);
+                List&lt;Stock&gt; result = apiInstance.CreateStocks(body);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling StockApi.PostStocks: " + e.Message );
+                Debug.Print("Exception when calling StockApi.CreateStocks: " + e.Message );
             }
         }
     }
