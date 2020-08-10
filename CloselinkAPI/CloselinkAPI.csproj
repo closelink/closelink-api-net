@@ -9,7 +9,7 @@
     <description>.NET Wrapper for Closelink API</description>
     <summary>A very fast, thin, and intuitive .NET Wrapper for the Closelink API.</summary>
 
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <authors>Tobias Schumacher</authors>
     <owners>Closelink GmbH</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
