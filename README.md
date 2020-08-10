@@ -30,28 +30,40 @@ using CloselinkAPI.Model;
 
 namespace Example
 {
-    public class Example
+    public class CreateExample
     {
         public void main()
         {
-
             // Configure API key authorization: apikey
-            Configuration.Default.ApiKey.Add("apikey", "YOUR_API_KEY");
+            Configuration.Default.setApiKey("YOUR_API_KEY");
 
-            var apiInstance = new ScheduleApi();
-            var body = new List<Schedule>(); // List<Schedule> |  (optional) 
+            var apiInstance = new StockApi();
+            var stocks = new List<Stock>(){
+                new Stock(
+                    "imo1",
+                    DateTime.Parse("2020-01-01T00:00:00.000Z"),
+                    5000,
+                    Stock.OilTypeEnum.AECIRC
+                ),
+                new Stock(
+                    "imo2",
+                    DateTime.Parse("2020-02-01T00:00:00.000Z"),
+                    7000,
+                    Stock.OilTypeEnum.MECYLHS
+                )
+            };
 
             try
             {
-                // Creates new Schedules
-                List<Schedule> result = apiInstance.Create(body);
-                Debug.WriteLine(result);
+                // Creates new Stock data
+                ApiResponse<List<Stock>> response = apiInstance.Create(stocks);
+                Debug.WriteLine(response.StatusCode);
+                Debug.WriteLine(result.Data);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling ScheduleApi.Create: " + e.Message );
+                Debug.Print("Exception when calling StockApi.Create: " + e.Message );
             }
-
         }
     }
 }
@@ -67,9 +79,8 @@ Class | Method | HTTP request | Description
 *ScheduleApi* | [**Create**](docs/ScheduleApi.md#create) | **POST** /v1/schedule | Creates new Schedules
 *ScheduleApi* | [**Get**](docs/ScheduleApi.md#get) | **GET** /v1/schedule/{scheduleId} | Finds a Schedule by id
 *ScheduleApi* | [**GetList**](docs/ScheduleApi.md#getlist) | **GET** /v1/schedule/list | Finds a List of Schedules
-*ScheduleApi* | [**GetPage**](docs/ScheduleApi.md#getpage) | **GET** /v1/schedule | Finds a Page of Schedules
 *ScheduleApi* | [**Update**](docs/ScheduleApi.md#update) | **PUT** /v1/schedule | Updates future Schedules (Overrides all future Schedules)
-*StockApi* | [**CreateStocks**](docs/StockApi.md#createstocks) | **POST** /v1/stock | Creates new Stock data
+*StockApi* | [**Create**](docs/StockApi.md#create) | **POST** /v1/stock | Creates new Stock data
 
 
 <a name="documentation-for-models"></a>

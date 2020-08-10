@@ -1,4 +1,4 @@
-# IO.Swagger.Api.ScheduleApi
+# CloselinkAPI.Api.ScheduleApi
 
 All URIs are relative to *https://public-api.closelink.net*
 
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="create"></a>
 # **Create**
-> List<Schedule> Create (List<Schedule> body = null)
+> List<Schedule> Create(List<Schedule> body)
 
 Creates new Schedules
 
@@ -20,9 +20,9 @@ Creates new Schedules
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using CloselinkAPI.Api;
+using CloselinkAPI.Client;
+using CloselinkAPI.Model;
 
 namespace Example
 {
@@ -31,18 +31,30 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: apikey
-            Configuration.Default.AddApiKey("apikey", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("apikey", "Bearer");
+            Configuration.Default.setApiKey("YOUR_API_KEY");
 
             var apiInstance = new ScheduleApi();
-            var body = new List<Schedule>(); // List<Schedule> |  (optional) 
+            var schedules = new List<Schedule>(){
+                new Schedule(
+                    "imo1",
+                    DateTime.Parse("2020-01-01T00:00:00.000Z"),
+                    DateTime.Parse("2020-01-04T00:00:00.000Z"),
+                    "DEHAM"
+                ),
+                new Schedule(
+                    "imo2",
+                    DateTime.Parse("2020-02-01T00:00:00.000Z"),
+                    DateTime.Parse("2020-02-04T00:00:00.000Z"),
+                    "DEGEG"
+                )
+            };
 
             try
             {
-                // Creates new Schedules
-                List&lt;Schedule&gt; result = apiInstance.Create(body);
-                Debug.WriteLine(result);
+                // Creates new Schedule data
+                ApiResponse<List<Schedule>> response = apiInstance.Create(schedules);
+                Debug.WriteLine(response.StatusCode);
+                Debug.WriteLine(result.Data); // List<Schedule>
             }
             catch (Exception e)
             {
@@ -55,13 +67,13 @@ namespace Example
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**List&lt;Schedule&gt;**](Schedule.md)|  | [optional] 
+Name | Type | Description  
+------------- | ------------- | ------------- 
+ **body** | [**List&lt;Schedule&gt;**](Schedule.md)| List of Schedule data to create.
 
 ### Return type
 
-[**List<Schedule>**](Schedule.md)
+[**List&lt;Schedule&gt;**](Schedule.md)
 
 ### Authorization
 
@@ -84,9 +96,9 @@ Finds a Schedule by id
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using CloselinkAPI.Api;
+using CloselinkAPI.Client;
+using CloselinkAPI.Model;
 
 namespace Example
 {
@@ -95,18 +107,17 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: apikey
-            Configuration.Default.AddApiKey("apikey", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("apikey", "Bearer");
+            Configuration.Default.setApiKey("YOUR_API_KEY");
 
             var apiInstance = new ScheduleApi();
-            var scheduleId = scheduleId_example;  // string | 
+            var schedules = "exampleId";
 
             try
             {
-                // Finds a Schedule by id
-                Schedule result = apiInstance.Get(scheduleId);
-                Debug.WriteLine(result);
+                // Creates new Schedule data
+                ApiResponse<Schedule> response = apiInstance.Get(scheduleId);
+                Debug.WriteLine(response.StatusCode);
+                Debug.WriteLine(result.Data); // Schedule
             }
             catch (Exception e)
             {
@@ -119,9 +130,9 @@ namespace Example
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scheduleId** | **string**|  | 
+Name | Type | Description
+------------- | ------------- | ------------- 
+ **scheduleId** | **string** | scheduleId of searched Schedule
 
 ### Return type
 
@@ -148,9 +159,9 @@ Finds a List of Schedules
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using CloselinkAPI.Api;
+using CloselinkAPI.Client;
+using CloselinkAPI.Model;
 
 namespace Example
 {
@@ -159,9 +170,7 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: apikey
-            Configuration.Default.AddApiKey("apikey", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("apikey", "Bearer");
+            Configuration.Default.setApiKey("YOUR_API_KEY");
 
             var apiInstance = new ScheduleApi();
             var imo = imo_example;  // string | Optional imo filter (optional) 
@@ -171,8 +180,9 @@ namespace Example
             try
             {
                 // Finds a List of Schedules
-                List&lt;Schedule&gt; result = apiInstance.GetList(imo, etaFrom, etaTo);
-                Debug.WriteLine(result);
+                ApiResponse<List<Schedule>> result = apiInstance.GetList(imo, etaFrom, etaTo);
+                Debug.WriteLine(response.StatusCode);
+                Debug.WriteLine(result.Data); // List<Schedule>
             }
             catch (Exception e)
             {
@@ -208,7 +218,7 @@ Name | Type | Description  | Notes
 
 <a name="update"></a>
 # **Update**
-> List<Schedule> Update (List<Schedule> body = null)
+> List<Schedule> Update (List<Schedule> body)
 
 Updates future Schedules (Overrides all future Schedules)
 
@@ -216,9 +226,9 @@ Updates future Schedules (Overrides all future Schedules)
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using CloselinkAPI.Api;
+using CloselinkAPI.Client;
+using CloselinkAPI.Model;
 
 namespace Example
 {
@@ -227,18 +237,30 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: apikey
-            Configuration.Default.AddApiKey("apikey", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("apikey", "Bearer");
+            Configuration.Default.setApiKey("YOUR_API_KEY");
 
             var apiInstance = new ScheduleApi();
-            var body = new List<Schedule>(); // List<Schedule> |  (optional) 
+            var schedules = new List<Schedule>(){
+                new Schedule(
+                    "imo1",
+                    DateTime.Parse("2020-01-01T00:00:00.000Z"),
+                    DateTime.Parse("2020-01-04T00:00:00.000Z"),
+                    "DEHAM"
+                ),
+                new Schedule(
+                    "imo2",
+                    DateTime.Parse("2020-02-01T00:00:00.000Z"),
+                    DateTime.Parse("2020-02-04T00:00:00.000Z"),
+                    "DEGEG"
+                )
+            };
 
             try
             {
                 // Updates future Schedules (Overrides all future Schedules)
-                List&lt;Schedule&gt; result = apiInstance.Update(body);
-                Debug.WriteLine(result);
+                ApiResponse<List<Schedule>> result = apiInstance.Update(schedules);
+                Debug.WriteLine(response.StatusCode);
+                Debug.WriteLine(result.Data); // List<Schedule>
             }
             catch (Exception e)
             {
@@ -251,9 +273,9 @@ namespace Example
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**List&lt;Schedule&gt;**](Schedule.md)|  | [optional] 
+Name | Type | Description 
+------------- | ------------- | ------------- 
+ **body** | [**List&lt;Schedule&gt;**](Schedule.md) | List of Schedule data to create. 
 
 ### Return type
 

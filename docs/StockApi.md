@@ -1,15 +1,15 @@
-# IO.Swagger.Api.StockApi
+# CloselinkAPI.Api.StockApi
 
 All URIs are relative to *https://public-api.closelink.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateStocks**](StockApi.md#createstocks) | **POST** /v1/stock | Creates new Stock data
+[**Create**](StockApi.md#create) | **POST** /v1/stock | Creates new Stock data
 
 
-<a name="createstocks"></a>
-# **CreateStocks**
-> List<Stock> CreateStocks (List<Stock> body = null)
+<a name="create"></a>
+# **Create**
+> List<Stock> Create (List<Stock> body)
 
 Creates new Stock data
 
@@ -17,13 +17,13 @@ Creates new Stock data
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using CloselinkAPI.Api;
+using CloselinkAPI.Client;
+using CloselinkAPI.Model;
 
 namespace Example
 {
-    public class CreateStocksExample
+    public class CreateExample
     {
         public void main()
         {
@@ -31,17 +31,31 @@ namespace Example
             Configuration.Default.setApiKey("YOUR_API_KEY");
 
             var apiInstance = new StockApi();
-            var body = new List<Stock>(); // List<Stock> |  (optional) 
+            var stocks = new List<Stock>(){
+                new Stock(
+                    "imo1",
+                    DateTime.Parse("2020-01-01T00:00:00.000Z"),
+                    5000,
+                    Stock.OilTypeEnum.AECIRC
+                ),
+                new Stock(
+                    "imo2",
+                    DateTime.Parse("2020-02-01T00:00:00.000Z"),
+                    7000,
+                    Stock.OilTypeEnum.MECYLHS
+                )
+            };
 
             try
             {
                 // Creates new Stock data
-                List&lt;Stock&gt; result = apiInstance.CreateStocks(body);
-                Debug.WriteLine(result);
+                ApiResponse<List<Stock>> response = apiInstance.Create(stocks);
+                Debug.WriteLine(response.StatusCode);
+                Debug.WriteLine(result.Data); // List<Stock>
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling StockApi.CreateStocks: " + e.Message );
+                Debug.Print("Exception when calling StockApi.Create: " + e.Message );
             }
         }
     }
@@ -50,13 +64,13 @@ namespace Example
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**List&lt;Stock&gt;**](Stock.md)|  | [optional] 
+Name | Type | Description  
+------------- | ------------- | ------------- 
+ **body** | [**List&lt;Stock&gt;**](Stock.md)| List of Stock data to create. 
 
 ### Return type
 
-[**List<Stock>**](Stock.md)
+[**List&lt;Stock&gt;**](Stock.md)
 
 ### Authorization
 
