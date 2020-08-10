@@ -3,6 +3,25 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <OutputType>Library</OutputType>
+    <id>CloselinkAPI</id>
+
+    <title>CloselinkAPI</title>
+    <description>.NET Wrapper for Closelink API</description>
+    <summary>A very fast, thin, and intuitive .NET Wrapper for the Closelink API.</summary>
+
+    <version>1.0.1</version>
+    <authors>Tobias Schumacher</authors>
+    <owners>Closelink GmbH</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <developmentDependency>false</developmentDependency>
+    <copyright>Copyright © 2020</copyright>
+
+    <PackageProjectUrl>https://github.com/closelink/closelink-api-net</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/closelink/closelink-api-net</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+
+    <license>https://github.com/closelink/closelink-api-net/blob/master/LICENSE.txt</license>
+
     <RootNamespace>CloselinkAPI</RootNamespace>
     <AssemblyName>CloselinkAPI</AssemblyName>
     <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
