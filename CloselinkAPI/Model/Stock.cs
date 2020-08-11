@@ -9,13 +9,27 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CloselinkAPI.Model
 {
+    /// <summary>
+    /// Stock data containing quantity of a OilType on a specific date
+    /// </summary>
     [DataContract]
     public partial class Stock : IEquatable<Stock>, IValidatableObject
     {
 
+        /// <summary>
+        /// The OilType for the quantity
+        /// </summary>
+        /// <value>The OilType for the quantity</value>
         [JsonConstructorAttribute]
         protected Stock() { }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Stock" /> class.
+        /// </summary>
+        /// <param name="imo">The imo of the vessel (required).</param>
+        /// <param name="dateMeasured">Date Stock was measured (required).</param>
+        /// <param name="quantity">Quantity in liters (required).</param>
+        /// <param name="oilType">The OilType for the quantity (required).</param>
         public Stock(
             string imo,
             DateTime dateMeasured,
@@ -42,27 +56,59 @@ namespace CloselinkAPI.Model
             this.OilType = oilType;
         }
 
+        /// <summary>
+        /// Internal id (read-only)
+        /// </summary>
+        /// <value>Internal id (read-only)</value>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
+        /// <summary>
+        /// The date-time the object was created (read-only)
+        /// </summary>
+        /// <value>The date-time the object was created (read-only)</value>
         [DataMember(Name = "dateCreated", EmitDefaultValue = false)]
         public DateTime? DateCreated { get; set; }
 
+        /// <summary>
+        /// The date-time the object was last updated (read-only)
+        /// </summary>
+        /// <value>The date-time the object was last updated (read-only)</value>
         [DataMember(Name = "dateUpdated", EmitDefaultValue = false)]
         public DateTime? DateUpdated { get; set; }
 
+        /// <summary>
+        /// Internal CustomerGroupId (read-only)
+        /// </summary>
+        /// <value>Internal CustomerGroupId (read-only)</value>
         [DataMember(Name = "CustomerGroupId", EmitDefaultValue = false)]
         public string CustomerGroupId { get; set; }
 
+        /// <summary>
+        /// The imo of the vessel
+        /// </summary>
+        /// <value>The imo of the vessel</value>
         [DataMember(Name = "imo", EmitDefaultValue = false)]
         public string Imo { get; set; }
 
+        /// <summary>
+        /// Date Stock was measured
+        /// </summary>
+        /// <value>Date Stock was measured</value>
         [DataMember(Name = "dateMeasured", EmitDefaultValue = false)]
         public DateTime DateMeasured { get; set; }
 
+        /// <summary>
+        /// Quantity in liters
+        /// </summary>
+        /// <value>Quantity in liters</value>
         [DataMember(Name = "quantity", EmitDefaultValue = false)]
         public long Quantity { get; set; }
 
+        /// <summary>
+        /// Returns the string presentation of the object
+        /// </summary>
+        /// <returns>String presentation of the object</returns>
         [DataMember(Name = "oilType", EmitDefaultValue = false)]
         public OilTypeEnum OilType { get; set; }
 
@@ -193,20 +239,37 @@ namespace CloselinkAPI.Model
             yield break;
         }
 
+         /// <summary>
+        /// The OilType for the quantity
+        /// </summary>
+        /// <value>The OilType for the quantity</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum OilTypeEnum
         {
 
+            /// <summary>
+            /// Enum ME_CIRC for value: ME_CIRC
+            /// </summary>
             [EnumMember(Value = "ME_CIRC")]
-            MECIRC = 1,
+            ME_CIRC = 1,
 
+            /// <summary>
+            /// Enum AE_CIRC for value: AE_CIRC
+            /// </summary>
             [EnumMember(Value = "AE_CIRC")]
-            AECIRC = 2,
+            AE_CIRC = 2,
 
+            /// <summary>
+            /// Enum ME_CYL_HS for value: ME_CYL_HS
+            /// </summary>
             [EnumMember(Value = "ME_CYL_HS")]
-            MECYLHS = 3,
+            ME_CYL_HS = 3,
+
+            /// <summary>
+            /// Enum ME_CYL_LS for value: ME_CYL_LS
+            /// </summary>
             [EnumMember(Value = "ME_CYL_LS")]
-            MECYLLS = 4
+            ME_CYL_LS = 4
         }
 
     }

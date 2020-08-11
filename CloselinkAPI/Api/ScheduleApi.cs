@@ -8,6 +8,9 @@ using CloselinkAPI.Model;
 namespace CloselinkAPI.Api
 {
 
+    /// <summary>
+    /// Represents a collection of functions to interact with the API endpoints
+    /// </summary>
     public interface IScheduleApi : IApiAccessor
     {
         #region Synchronous Operations
@@ -18,7 +21,7 @@ namespace CloselinkAPI.Api
         /// 
         /// </remarks>
         /// <exception cref="CloselinkAPI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
+        /// <param name="body">List of Schedules to create</param>
         /// <returns>ApiResponse of List&lt;Schedule&gt;</returns>
         ApiResponse<List<Schedule>> Create(List<Schedule> body);
 
@@ -53,9 +56,9 @@ namespace CloselinkAPI.Api
         /// 
         /// </remarks>
         /// <exception cref="CloselinkAPI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
+        /// <param name="body">List of Schedules to update</param>
         /// <returns>ApiResponse of List&lt;Schedule&gt;</returns>
-        ApiResponse<List<Schedule>> Update(List<Schedule> body = null);
+        ApiResponse<List<Schedule>> Update(List<Schedule> body);
         #endregion Synchronous Operations
         #region Asynchronous Operations
 
@@ -66,7 +69,7 @@ namespace CloselinkAPI.Api
         /// 
         /// </remarks>
         /// <exception cref="CloselinkAPI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
+        /// <param name="body">List of Schedules to create</param>
         /// <returns>Task of ApiResponse (List&lt;Schedule&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<Schedule>>> CreateAsync(List<Schedule> body = null);
 
@@ -101,12 +104,15 @@ namespace CloselinkAPI.Api
         /// 
         /// </remarks>
         /// <exception cref="CloselinkAPI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
+        /// <param name="body">List of Schedules to update</param>
         /// <returns>Task of ApiResponse (List&lt;Schedule&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<Schedule>>> UpdateAsync(List<Schedule> body);
         #endregion Asynchronous Operations
     }
 
+    /// <summary>
+    /// Represents a collection of functions to interact with the API endpoints
+    /// </summary>
     public partial class ScheduleApi : IScheduleApi
     {
         private CloselinkAPI.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
@@ -160,7 +166,15 @@ namespace CloselinkAPI.Api
             set { _exceptionFactory = value; }
         }
 
-
+        /// <summary>
+        /// Creates new Schedules
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="CloselinkAPI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">List of Schedules to create</param>
+        /// <returns>ApiResponse of List&lt;Schedule&gt;</returns>
         public ApiResponse<List<Schedule>> Create(List<Schedule> body)
         {
             var localVarPath = "/v1/schedule";
@@ -197,7 +211,15 @@ namespace CloselinkAPI.Api
         }
 
 
-
+        /// <summary>
+        /// Creates new Schedules
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="CloselinkAPI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">List of Schedules to create</param>
+        /// <returns>Task of ApiResponse (List&lt;Schedule&gt;)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<List<Schedule>>> CreateAsync(List<Schedule> body)
         {
 
@@ -235,7 +257,15 @@ namespace CloselinkAPI.Api
         }
 
 
-
+        /// <summary>
+        /// Finds a Schedule by id
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="CloselinkAPI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scheduleId"></param>
+        /// <returns>ApiResponse of Schedule</returns>
         public ApiResponse<Schedule> Get(string scheduleId)
         {
             // verify the required parameter 'scheduleId' is set
@@ -276,6 +306,15 @@ namespace CloselinkAPI.Api
                 (Schedule)this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Schedule)));
         }
 
+        /// <summary>
+        /// Finds a Schedule by id
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="CloselinkAPI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scheduleId"></param>
+        /// <returns>Task of ApiResponse (Schedule)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Schedule>> GetAsync(string scheduleId)
         {
             // verify the required parameter 'scheduleId' is set
@@ -316,7 +355,17 @@ namespace CloselinkAPI.Api
                 (Schedule)this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Schedule)));
         }
 
-
+        /// <summary>
+        /// Finds a List of Schedules
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="CloselinkAPI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="imo">Optional imo filter (optional)</param>
+        /// <param name="etaFrom">Optional eta from date filter (optional)</param>
+        /// <param name="etaTo">Optional eta to date filter (optional)</param>
+        /// <returns>ApiResponse of List&lt;Schedule&gt;</returns>
         public ApiResponse<List<Schedule>> GetList(string imo = null, DateTime? etaFrom = null, DateTime? etaTo = null)
         {
 
@@ -357,7 +406,17 @@ namespace CloselinkAPI.Api
         }
 
 
-
+        /// <summary>
+        /// Finds a List of Schedules
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="CloselinkAPI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="imo">Optional imo filter (optional)</param>
+        /// <param name="etaFrom">Optional eta from date filter (optional)</param>
+        /// <param name="etaTo">Optional eta to date filter (optional)</param>
+        /// <returns>Task of ApiResponse (List&lt;Schedule&gt;)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<List<Schedule>>> GetListAsync(string imo = null, DateTime? etaFrom = null, DateTime? etaTo = null)
         {
 
@@ -397,6 +456,15 @@ namespace CloselinkAPI.Api
                 (List<Schedule>)this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<Schedule>)));
         }
 
+        /// <summary>
+        /// Updates future Schedules (Overrides all future Schedules)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="CloselinkAPI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">List of Schedules to update</param>
+        /// <returns>ApiResponse of List&lt;Schedule&gt;</returns>
         public ApiResponse<List<Schedule>> Update(List<Schedule> body)
         {
 
@@ -435,7 +503,15 @@ namespace CloselinkAPI.Api
                 (List<Schedule>)this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<Schedule>)));
         }
 
-
+        /// <summary>
+        /// Updates future Schedules (Overrides all future Schedules)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="CloselinkAPI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">List of Schedules to update</param>
+        /// <returns>Task of ApiResponse (List&lt;Schedule&gt;)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<List<Schedule>>> UpdateAsync(List<Schedule> body)
         {
 

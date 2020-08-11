@@ -25,6 +25,7 @@
     <RootNamespace>CloselinkAPI</RootNamespace>
     <AssemblyName>CloselinkAPI</AssemblyName>
     <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="JsonSubTypes" Version="1.2.0" />

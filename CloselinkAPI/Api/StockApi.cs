@@ -7,6 +7,9 @@ using CloselinkAPI.Model;
 
 namespace CloselinkAPI.Api
 {
+    /// <summary>
+    /// Represents a collection of functions to interact with the API endpoints
+    /// </summary>
     public interface IStockApi : IApiAccessor
     {
         #region Synchronous Operations
@@ -18,7 +21,7 @@ namespace CloselinkAPI.Api
         /// 
         /// </remarks>
         /// <exception cref="CloselinkAPI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
+        /// <param name="body">List of Stocks to create</param>
         /// <returns>ApiResponse of List&lt;Stock&gt;</returns>
         ApiResponse<List<Stock>> Create (List<Stock> body);
         #endregion Synchronous Operations
@@ -31,12 +34,15 @@ namespace CloselinkAPI.Api
         /// 
         /// </remarks>
         /// <exception cref="CloselinkAPI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
+        /// <param name="body">List of Stocks to create</param>
         /// <returns>Task of ApiResponse (List&lt;Stock&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<Stock>>> CreateAsync (List<Stock> body);
         #endregion Asynchronous Operations
     }
 
+    /// <summary>
+    /// Represents a collection of functions to interact with the API endpoints
+    /// </summary>
     public partial class StockApi : IStockApi
     {
         private CloselinkAPI.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
@@ -90,6 +96,15 @@ namespace CloselinkAPI.Api
             set { _exceptionFactory = value; }
         }
         
+        /// <summary>
+        /// Creates new Stock data
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="CloselinkAPI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">List of Stocks to create</param>
+        /// <returns>ApiResponse of List&lt;Stock&gt;</returns>
         public ApiResponse< List<Stock> > Create (List<Stock> body)
         {
             var localVarPath = "/v1/stock";
@@ -125,7 +140,15 @@ namespace CloselinkAPI.Api
                 (List<Stock>) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<Stock>)));
         }
 
-        
+        /// <summary>
+        /// Creates new Stock data
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="CloselinkAPI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">List of Stocks to create</param>
+        /// <returns>Task of ApiResponse (List&lt;Stock&gt;)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<List<Stock>>> CreateAsync (List<Stock> body)
         {
             var localVarPath = "/v1/stock";

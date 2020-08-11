@@ -34,7 +34,7 @@ namespace Example
     {
         static void Main(string[] args)
         {
-            // Configure API key authorization: apikey
+            // Configure API key authorization
             Configuration.Default.ApiKey = "YOUR_API_KEY";
 
             var apiInstance = new StockApi();
@@ -43,13 +43,13 @@ namespace Example
                     "imo1",
                     DateTime.Parse("2020-08-01T00:00:00.000Z"),
                     5000,
-                    Stock.OilTypeEnum.AECIRC
+                    Stock.OilTypeEnum.AE_CIRC
                 ),
                 new Stock(
                     "imo1",
                     DateTime.Parse("2020-08-01T00:00:00.000Z"),
                     7000,
-                    Stock.OilTypeEnum.MECYLHS
+                    Stock.OilTypeEnum.ME_CYL_HS
                 )
             };
 

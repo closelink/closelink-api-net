@@ -8,12 +8,25 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CloselinkAPI.Model
 {
+    /// <summary>
+    /// Schedule Entry for a vessel
+    /// </summary>
     [DataContract]
     public partial class Schedule : IEquatable<Schedule>, IValidatableObject
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Schedule" /> class.
+        /// </summary>
         [JsonConstructorAttribute]
         protected Schedule() { }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Schedule" /> class.
+        /// </summary>
+        /// <param name="imo">The imo of the vessel (required).</param>
+        /// <param name="eta">The estimated time of arrival (required).</param>
+        /// <param name="etd">The estimated time of departure (required).</param>
+        /// <param name="locode">The locode of the port (required).</param>
         public Schedule(
             string imo,
             DateTime eta,
@@ -43,27 +56,59 @@ namespace CloselinkAPI.Model
             this.Etd = etd;
         }
 
+        /// <summary>
+        /// Internal id (read-only)
+        /// </summary>
+        /// <value>Internal id (read-only)</value>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
+        /// <summary>
+        /// The date-time the object was created (read-only)
+        /// </summary>
+        /// <value>The date-time the object was created (read-only)</value>
         [DataMember(Name = "dateCreated", EmitDefaultValue = false)]
         public DateTime? DateCreated { get; set; }
 
+        /// <summary>
+        /// The date-time the object was last updated (read-only)
+        /// </summary>
+        /// <value>The date-time the object was last updated (read-only)</value>
         [DataMember(Name = "dateUpdated", EmitDefaultValue = false)]
         public DateTime? DateUpdated { get; set; }
 
+        /// <summary>
+        /// Internal CustomerGroupId (read-only)
+        /// </summary>
+        /// <value>Internal CustomerGroupId (read-only)</value>
         [DataMember(Name = "CustomerGroupId", EmitDefaultValue = false)]
         public string CustomerGroupId { get; set; }
 
+        /// <summary>
+        /// The imo of the vessel
+        /// </summary>
+        /// <value>The imo of the vessel</value>
         [DataMember(Name = "imo", EmitDefaultValue = false)]
         public string Imo { get; set; }
 
+        /// <summary>
+        /// The estimated time of arrival
+        /// </summary>
+        /// <value>The estimated time of arrival</value>
         [DataMember(Name = "eta", EmitDefaultValue = false)]
         public DateTime? Eta { get; set; }
 
+        /// <summary>
+        /// The estimated time of departure
+        /// </summary>
+        /// <value>The estimated time of departure</value>
         [DataMember(Name = "etd", EmitDefaultValue = false)]
         public DateTime? Etd { get; set; }
 
+        /// <summary>
+        /// The locode of the port
+        /// </summary>
+        /// <value>The locode of the port</value>
         [DataMember(Name = "locode", EmitDefaultValue = false)]
         public string Locode { get; set; }
 
