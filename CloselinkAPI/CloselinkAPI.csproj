@@ -9,11 +9,11 @@
     <description>.NET Wrapper for Closelink API</description>
     <summary>A very fast, thin, and intuitive .NET Wrapper for the Closelink API.</summary>
 
-    <version>1.0.3</version>
+    <version>1.0.4</version>
     <authors>Tobias Schumacher</authors>
     <owners>Closelink GmbH</owners>
 
-    <PackageProjectUrl>https://github.com/closelink/closelink-api-net</PackageProjectUrl>
+    <PackageProjectUrl>http://developer.closelink.net</PackageProjectUrl>
     <RepositoryUrl>https://github.com/closelink/closelink-api-net</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
