@@ -31,7 +31,8 @@ namespace Example
             Configuration.Default.ApiKey = "YOUR_API_KEY";
 
             var apiInstance = new StockApi();
-            var stocks = new List<Stock>(){
+            var stocks = new List<Stock>
+            {
                 new Stock(
                     "imo1",
                     DateTime.Parse("2020-08-01T00:00:00.000Z"),
@@ -52,10 +53,7 @@ namespace Example
                 ApiResponse<List<Stock>> response = apiInstance.Create(stocks);
                 Console.WriteLine("StatusCode: " + response.StatusCode);
                 var stockResult = response.Data;
-                stockResult.ForEach(delegate (Stock stock){
-                        Console.WriteLine(stock);
-                    }
-                );
+                stockResult.ForEach(Console.WriteLine);
 
             }
             catch (Exception e)

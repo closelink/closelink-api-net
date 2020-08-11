@@ -9,8 +9,6 @@
  */
 
 
-using System.Collections.Generic;
-
 namespace CloselinkAPI.Client
 {
     /// <summary>

@@ -22,13 +22,13 @@ namespace CloselinkAPI.Client
             if (status >= 400)
             {
                 return new ApiException(status,
-                    string.Format("Error calling {0}: {1}", methodName, response.Content),
+                    $"Error calling {methodName}: {response.Content}",
                     response.Content);
             }
             if (status == 0)
             {
                 return new ApiException(status,
-                    string.Format("Error calling {0}: {1}", methodName, response.ErrorMessage), response.ErrorMessage);
+                    $"Error calling {methodName}: {response.ErrorMessage}", response.ErrorMessage);
             }
             return null;
         };
@@ -39,7 +39,7 @@ namespace CloselinkAPI.Client
         /// <value>Configuration.</value>
         public static Configuration Default
         {
-            get { return _globalConfiguration; }
+            get => _globalConfiguration;
             set
             {
                 lock (GlobalConfigSync)
@@ -78,12 +78,10 @@ namespace CloselinkAPI.Client
             string basePath = "https://public-api.closelink.net") : this()
         {
             if (string.IsNullOrWhiteSpace(basePath))
-                throw new ArgumentException("The provided basePath is invalid.", "basePath");
-            if (apiKey == null)
-                throw new ArgumentNullException("apiKey");
+                throw new ArgumentException("The provided basePath is invalid.", nameof(basePath));
 
             BasePath = basePath;
-            ApiKey = apiKey;
+            ApiKey = apiKey ?? throw new ArgumentNullException(nameof(apiKey));
         }
 
 
@@ -93,26 +91,19 @@ namespace CloselinkAPI.Client
 
         #region Properties
 
-        private ApiClient _apiClient = null;
+        private ApiClient _apiClient;
         /// <summary>
         /// Gets an instance of an ApiClient for this configuration
         /// </summary>
-        public virtual ApiClient ApiClient
-        {
-            get
-            {
-                if (_apiClient == null) _apiClient = CreateApiClient();
-                return _apiClient;
-            }
-        }
+        public virtual ApiClient ApiClient => _apiClient ?? (_apiClient = CreateApiClient());
 
-        private String _basePath = null;
+        private string _basePath = null;
         /// <summary>
         /// Gets or sets the base path for API access.
         /// </summary>
         public virtual string BasePath
         {
-            get { return _basePath; }
+            get => _basePath;
             set
             {
                 _basePath = value;
@@ -131,8 +122,8 @@ namespace CloselinkAPI.Client
         public virtual int Timeout
         {
 
-            get { return ApiClient.RestClient.Timeout; }
-            set { ApiClient.RestClient.Timeout = value; }
+            get => ApiClient.RestClient.Timeout;
+            set => ApiClient.RestClient.Timeout = value;
         }
 
         /// <summary>
@@ -170,7 +161,7 @@ namespace CloselinkAPI.Client
         /// </summary>
         public static String ToDebugReport()
         {
-            String report = "C# SDK (CloselinkAPI) Debug Report:\n";
+            var report = "C# SDK (CloselinkAPI) Debug Report:\n";
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version + "\n";
             report += "    Version of the API: v1\n";

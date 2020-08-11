@@ -15,13 +15,14 @@ namespace CloselinkAPI.Model
     [DataContract]
     public partial class Stock : IEquatable<Stock>, IValidatableObject
     {
-
         /// <summary>
         /// The OilType for the quantity
         /// </summary>
         /// <value>The OilType for the quantity</value>
         [JsonConstructorAttribute]
-        protected Stock() { }
+        protected Stock()
+        {
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Stock" /> class.
@@ -36,24 +37,10 @@ namespace CloselinkAPI.Model
             long quantity,
             OilTypeEnum oilType)
         {
-            if (imo == null)
-            {
-                throw new InvalidDataException("imo is a required property for Stock and cannot be null");
-            }
-            else
-            {
-                this.Imo = imo;
-            }
-            if (dateMeasured == null)
-            {
-                throw new InvalidDataException("dateMeasured is a required property for Stock and cannot be null");
-            }
-            else
-            {
-                this.DateMeasured = dateMeasured;
-            }
-            this.Quantity = quantity;
-            this.OilType = oilType;
+            Imo = imo ?? throw new InvalidDataException("imo is a required property for Stock and cannot be null");
+            DateMeasured = dateMeasured;
+            Quantity = quantity;
+            OilType = oilType;
         }
 
         /// <summary>
@@ -148,7 +135,7 @@ namespace CloselinkAPI.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as Stock);
+            return Equals(input as Stock);
         }
 
         /// <summary>
@@ -163,42 +150,41 @@ namespace CloselinkAPI.Model
 
             return
                 (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
+                    Id == input.Id ||
+                    (Id != null &&
+                     Id.Equals(input.Id))
                 ) &&
                 (
-                    this.DateCreated == input.DateCreated ||
-                    (this.DateCreated != null &&
-                    this.DateCreated.Equals(input.DateCreated))
+                    DateCreated == input.DateCreated ||
+                    (DateCreated != null &&
+                     DateCreated.Equals(input.DateCreated))
                 ) &&
                 (
-                    this.DateUpdated == input.DateUpdated ||
-                    (this.DateUpdated != null &&
-                    this.DateUpdated.Equals(input.DateUpdated))
+                    DateUpdated == input.DateUpdated ||
+                    (DateUpdated != null &&
+                     DateUpdated.Equals(input.DateUpdated))
                 ) &&
                 (
-                    this.CustomerGroupId == input.CustomerGroupId ||
-                    (this.CustomerGroupId != null &&
-                    this.CustomerGroupId.Equals(input.CustomerGroupId))
+                    CustomerGroupId == input.CustomerGroupId ||
+                    (CustomerGroupId != null &&
+                     CustomerGroupId.Equals(input.CustomerGroupId))
                 ) &&
                 (
-                    this.Imo == input.Imo ||
-                    (this.Imo != null &&
-                    this.Imo.Equals(input.Imo))
+                    Imo == input.Imo ||
+                    (Imo != null &&
+                     Imo.Equals(input.Imo))
                 ) &&
                 (
-                    this.DateMeasured == input.DateMeasured ||
-                    (this.DateMeasured != null &&
-                    this.DateMeasured.Equals(input.DateMeasured))
+                    DateMeasured == input.DateMeasured ||
+                    DateMeasured.Equals(input.DateMeasured)
                 ) &&
                 (
-                    this.Quantity == input.Quantity ||
-                    this.Quantity.Equals(input.Quantity)
+                    Quantity == input.Quantity ||
+                    Quantity.Equals(input.Quantity)
                 ) &&
                 (
-                    this.OilType == input.OilType ||
-                    this.OilType.Equals(input.OilType)
+                    OilType == input.OilType ||
+                    OilType.Equals(input.OilType)
                 );
         }
 
@@ -211,20 +197,19 @@ namespace CloselinkAPI.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
-                if (this.DateCreated != null)
-                    hashCode = hashCode * 59 + this.DateCreated.GetHashCode();
-                if (this.DateUpdated != null)
-                    hashCode = hashCode * 59 + this.DateUpdated.GetHashCode();
-                if (this.CustomerGroupId != null)
-                    hashCode = hashCode * 59 + this.CustomerGroupId.GetHashCode();
-                if (this.Imo != null)
-                    hashCode = hashCode * 59 + this.Imo.GetHashCode();
-                if (this.DateMeasured != null)
-                    hashCode = hashCode * 59 + this.DateMeasured.GetHashCode();
-                hashCode = hashCode * 59 + this.Quantity.GetHashCode();
-                hashCode = hashCode * 59 + this.OilType.GetHashCode();
+                if (Id != null)
+                    hashCode = hashCode * 59 + Id.GetHashCode();
+                if (DateCreated != null)
+                    hashCode = hashCode * 59 + DateCreated.GetHashCode();
+                if (DateUpdated != null)
+                    hashCode = hashCode * 59 + DateUpdated.GetHashCode();
+                if (CustomerGroupId != null)
+                    hashCode = hashCode * 59 + CustomerGroupId.GetHashCode();
+                if (Imo != null)
+                    hashCode = hashCode * 59 + Imo.GetHashCode();
+                hashCode = hashCode * 59 + DateMeasured.GetHashCode();
+                hashCode = hashCode * 59 + Quantity.GetHashCode();
+                hashCode = hashCode * 59 + OilType.GetHashCode();
                 return hashCode;
             }
         }
@@ -234,7 +219,7 @@ namespace CloselinkAPI.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }
@@ -246,32 +231,25 @@ namespace CloselinkAPI.Model
         [JsonConverter(typeof(StringEnumConverter))]
         public enum OilTypeEnum
         {
+            /// <summary>
+            /// Enum MeCirc for value: ME_CIRC
+            /// </summary>
+            [EnumMember(Value = "ME_CIRC")] MeCirc = 1,
 
             /// <summary>
-            /// Enum ME_CIRC for value: ME_CIRC
+            /// Enum AeCirc for value: AE_CIRC
             /// </summary>
-            [EnumMember(Value = "ME_CIRC")]
-            ME_CIRC = 1,
+            [EnumMember(Value = "AE_CIRC")] AeCirc = 2,
 
             /// <summary>
-            /// Enum AE_CIRC for value: AE_CIRC
+            /// Enum MeCylHs for value: ME_CYL_HS
             /// </summary>
-            [EnumMember(Value = "AE_CIRC")]
-            AE_CIRC = 2,
+            [EnumMember(Value = "ME_CYL_HS")] MeCylHs = 3,
 
             /// <summary>
-            /// Enum ME_CYL_HS for value: ME_CYL_HS
+            /// Enum MeCylLs for value: ME_CYL_LS
             /// </summary>
-            [EnumMember(Value = "ME_CYL_HS")]
-            ME_CYL_HS = 3,
-
-            /// <summary>
-            /// Enum ME_CYL_LS for value: ME_CYL_LS
-            /// </summary>
-            [EnumMember(Value = "ME_CYL_LS")]
-            ME_CYL_LS = 4
+            [EnumMember(Value = "ME_CYL_LS")] MeCylLs = 4
         }
-
     }
-
 }

@@ -15,7 +15,7 @@ namespace CloselinkAPI.Client
     /// </summary>
     public partial class ApiClient
     {
-        private JsonSerializerSettings serializerSettings = new JsonSerializerSettings
+        private readonly JsonSerializerSettings _serializerSettings = new JsonSerializerSettings
         {
             ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor
         };
@@ -51,7 +51,6 @@ namespace CloselinkAPI.Client
         public ApiClient(Configuration config)
         {
             Configuration = config ?? CloselinkAPI.Client.Configuration.Default;
-
             RestClient = new RestClient(Configuration.BasePath);
         }
 
@@ -60,7 +59,7 @@ namespace CloselinkAPI.Client
         /// with default configuration.
         /// </summary>
         /// <param name="basePath">The base path.</param>
-        public ApiClient(String basePath = "https://public-api.closelink.net")
+        public ApiClient(string basePath = "https://public-api.closelink.net")
         {
             if (String.IsNullOrEmpty(basePath))
                 throw new ArgumentException("basePath cannot be empty");
@@ -68,13 +67,6 @@ namespace CloselinkAPI.Client
             RestClient = new RestClient(basePath);
             Configuration = Client.Configuration.Default;
         }
-
-        /// <summary>
-        /// Gets or sets the default API client for making HTTP calls.
-        /// </summary>
-        /// <value>The default API client.</value>
-        [Obsolete("ApiClient.Default is deprecated, please use 'Configuration.Default.ApiClient' instead.")]
-        public static ApiClient Default;
 
         /// <summary>
         /// Gets or sets an instance of the IReadableConfiguration.
@@ -95,9 +87,10 @@ namespace CloselinkAPI.Client
 
         // Creates and sets up a RestRequest prior to a call.
         private RestRequest PrepareRequest(
-            String path, RestSharp.Method method, List<KeyValuePair<String, String>> queryParams, Object postBody,
-            Dictionary<String, String> headerParams, Dictionary<String, String> pathParams,
-            String contentType)
+            string path, Method method, IEnumerable<KeyValuePair<string, string>> queryParams,
+            object postBody,
+            Dictionary<string, string> headerParams, Dictionary<string, string> pathParams,
+            string contentType)
         {
             var request = new RestRequest(path, method);
 
@@ -131,14 +124,14 @@ namespace CloselinkAPI.Client
         /// <param name="headerParams">Header parameters.</param>
         /// <param name="pathParams">Path parameters.</param>
         /// <param name="contentType">Content Type of the request</param>
-        /// <returns>Object</returns>
-        public virtual Object CallApi(String path,
-                              RestSharp.Method method,
-                              List<KeyValuePair<String, String>> queryParams,
-                              Object postBody,
-                              Dictionary<String, String> headerParams,
-                              Dictionary<String, String> pathParams,
-                              String contentType)
+        /// <returns>object</returns>
+        public virtual object CallApi(string path,
+            Method method,
+            IEnumerable<KeyValuePair<string, string>> queryParams,
+            object postBody,
+            Dictionary<string, string> headerParams,
+            Dictionary<string, string> pathParams,
+            string contentType)
         {
             var request = PrepareRequest(
                 path, method, queryParams, postBody, headerParams,
@@ -154,8 +147,9 @@ namespace CloselinkAPI.Client
             var response = RestClient.Execute(request);
             InterceptResponse(request, response);
 
-            return (Object)response;
+            return response;
         }
+
         /// <summary>
         /// Makes the asynchronous HTTP request.
         /// </summary>
@@ -167,10 +161,14 @@ namespace CloselinkAPI.Client
         /// <param name="pathParams">Path parameters.</param>
         /// <param name="contentType">Content type.</param>
         /// <returns>The Task instance.</returns>
-        public virtual async System.Threading.Tasks.Task<Object> CallApiAsync(
-            String path, RestSharp.Method method, List<KeyValuePair<String, String>> queryParams, Object postBody,
-            Dictionary<String, String> headerParams, Dictionary<String, String> pathParams,
-            String contentType)
+        public virtual async System.Threading.Tasks.Task<object> CallApiAsync(
+            string path,
+            Method method,
+            IEnumerable<KeyValuePair<string, string>> queryParams,
+            object postBody,
+            Dictionary<string, string> headerParams,
+            Dictionary<string, string> pathParams,
+            string contentType)
         {
             var request = PrepareRequest(
                 path, method, queryParams, postBody, headerParams,
@@ -178,7 +176,7 @@ namespace CloselinkAPI.Client
             InterceptRequest(request);
             var response = await RestClient.ExecuteTaskAsync(request);
             InterceptResponse(request, response);
-            return (Object)response;
+            return response;
         }
 
         /// <summary>
@@ -200,31 +198,35 @@ namespace CloselinkAPI.Client
         /// <returns>Formatted string.</returns>
         public string ParameterToString(object obj)
         {
-            if (obj is DateTime)
-                // Return a formatted date string - Can be customized with Configuration.DateTimeFormat
-                // Defaults to an ISO 8601, using the known as a Round-trip date/time pattern ("o")
-                // https://msdn.microsoft.com/en-us/library/az4se3k1(v=vs.110).aspx#Anchor_8
-                // For example: 2009-06-15T13:45:30.0000000
-                return ((DateTime)obj).ToString("o");
-            else if (obj is DateTimeOffset)
-                // Return a formatted date string - Can be customized with Configuration.DateTimeFormat
-                // Defaults to an ISO 8601, using the known as a Round-trip date/time pattern ("o")
-                // https://msdn.microsoft.com/en-us/library/az4se3k1(v=vs.110).aspx#Anchor_8
-                // For example: 2009-06-15T13:45:30.0000000
-                return ((DateTimeOffset)obj).ToString("o");
-            else if (obj is IList)
+            switch (obj)
             {
-                var flattenedString = new StringBuilder();
-                foreach (var param in (IList)obj)
+                // Return a formatted date string - Can be customized with Configuration.DateTimeFormat
+                // Defaults to an ISO 8601, using the known as a Round-trip date/time pattern ("o")
+                // https://msdn.microsoft.com/en-us/library/az4se3k1(v=vs.110).aspx#Anchor_8
+                // For example: 2009-06-15T13:45:30.0000000
+                case DateTime time:
+                    return time.ToString("o");
+                // Return a formatted date string - Can be customized with Configuration.DateTimeFormat
+                // Defaults to an ISO 8601, using the known as a Round-trip date/time pattern ("o")
+                // https://msdn.microsoft.com/en-us/library/az4se3k1(v=vs.110).aspx#Anchor_8
+                // For example: 2009-06-15T13:45:30.0000000
+                case DateTimeOffset offset:
+                    return offset.ToString("o");
+                case IList list:
                 {
-                    if (flattenedString.Length > 0)
-                        flattenedString.Append(",");
-                    flattenedString.Append(param);
+                    var flattenedString = new StringBuilder();
+                    foreach (var param in list)
+                    {
+                        if (flattenedString.Length > 0)
+                            flattenedString.Append(",");
+                        flattenedString.Append(param);
+                    }
+
+                    return flattenedString.ToString();
                 }
-                return flattenedString.ToString();
+                default:
+                    return Convert.ToString(obj);
             }
-            else
-                return Convert.ToString(obj);
         }
 
         /// <summary>
@@ -235,7 +237,7 @@ namespace CloselinkAPI.Client
         /// <returns>Object representation of the JSON string.</returns>
         public object Deserialize(IRestResponse response, Type type)
         {
-            IList<Parameter> headers = response.Headers;
+            var headers = response.Headers;
             if (type == typeof(byte[])) // return byte array
             {
                 return response.RawBytes;
@@ -254,7 +256,7 @@ namespace CloselinkAPI.Client
             // at this point, it must be a model (json)
             try
             {
-                return JsonConvert.DeserializeObject(response.Content, type, serializerSettings);
+                return JsonConvert.DeserializeObject(response.Content, type, _serializerSettings);
             }
             catch (Exception e)
             {
@@ -289,7 +291,7 @@ namespace CloselinkAPI.Client
         /// </summary>
         /// <param name="mime">MIME</param>
         /// <returns>Returns True if MIME type is json.</returns>
-        public bool IsJsonMime(String mime)
+        public bool IsJsonMime(string mime)
         {
             var jsonRegex = new Regex("(?i)^(application/json|[^;/ \t]+/[^;/ \t]+[+]json)[ \t]*(;.*)?$");
             return mime != null && (jsonRegex.IsMatch(mime) || mime.Equals("application/json-patch+json"));
@@ -302,7 +304,7 @@ namespace CloselinkAPI.Client
         /// <returns>Encoded string.</returns>
         public static string Base64Encode(string text)
         {
-            return System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(text));
+            return Convert.ToBase64String(Encoding.UTF8.GetBytes(text));
         }
 
         /// <summary>
@@ -323,14 +325,15 @@ namespace CloselinkAPI.Client
         /// <returns>Byte array</returns>
         public static byte[] ReadAsBytes(Stream inputStream)
         {
-            byte[] buf = new byte[16 * 1024];
-            using (MemoryStream ms = new MemoryStream())
+            var buf = new byte[16 * 1024];
+            using (var ms = new MemoryStream())
             {
                 int count;
                 while ((count = inputStream.Read(buf, 0, buf.Length)) > 0)
                 {
                     ms.Write(buf, 0, count);
                 }
+
                 return ms.ToArray();
             }
         }
@@ -347,7 +350,7 @@ namespace CloselinkAPI.Client
 
             if (input == null)
             {
-                throw new ArgumentNullException("input");
+                throw new ArgumentNullException(nameof(input));
             }
 
             if (input.Length <= maxLength)
@@ -355,13 +358,13 @@ namespace CloselinkAPI.Client
                 return Uri.EscapeDataString(input);
             }
 
-            StringBuilder sb = new StringBuilder(input.Length * 2);
-            int index = 0;
+            var sb = new StringBuilder(input.Length * 2);
+            var index = 0;
 
             while (index < input.Length)
             {
-                int length = Math.Min(input.Length - index, maxLength);
-                string subString = input.Substring(index, length);
+                var length = Math.Min(input.Length - index, maxLength);
+                var subString = input.Substring(index, length);
 
                 sb.Append(Uri.EscapeDataString(subString));
                 index += subString.Length;
@@ -377,16 +380,8 @@ namespace CloselinkAPI.Client
         /// <returns>Filename</returns>
         public static string SanitizeFilename(string filename)
         {
-            Match match = Regex.Match(filename, @".*[/\\](.*)$");
-
-            if (match.Success)
-            {
-                return match.Groups[1].Value;
-            }
-            else
-            {
-                return filename;
-            }
+            var match = Regex.Match(filename, @".*[/\\](.*)$");
+            return match.Success ? match.Groups[1].Value : filename;
         }
 
         /// <summary>
@@ -397,14 +392,16 @@ namespace CloselinkAPI.Client
         /// <param name="name">Key name.</param>
         /// <param name="value">Value object.</param>
         /// <returns>A list of KeyValuePairs</returns>
-        public IEnumerable<KeyValuePair<string, string>> ParameterToKeyValuePairs(string collectionFormat, string name, object value)
+        public IEnumerable<KeyValuePair<string, string>> ParameterToKeyValuePairs(string collectionFormat, string name,
+            object value)
         {
             var parameters = new List<KeyValuePair<string, string>>();
 
             if (IsCollection(value) && collectionFormat == "multi")
             {
                 var valueCollection = value as IEnumerable;
-                parameters.AddRange(from object item in valueCollection select new KeyValuePair<string, string>(name, ParameterToString(item)));
+                parameters.AddRange(from object item in valueCollection
+                    select new KeyValuePair<string, string>(name, ParameterToString(item)));
             }
             else
             {

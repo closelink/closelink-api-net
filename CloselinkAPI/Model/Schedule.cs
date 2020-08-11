@@ -18,7 +18,9 @@ namespace CloselinkAPI.Model
         /// Initializes a new instance of the <see cref="Schedule" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected Schedule() { }
+        protected Schedule()
+        {
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Schedule" /> class.
@@ -33,27 +35,11 @@ namespace CloselinkAPI.Model
             DateTime etd,
             string locode)
         {
-            // to ensure "imo" is required (not null)
-            if (imo == null)
-            {
-                throw new InvalidDataException("imo is a required property for Schedule and cannot be null");
-            }
-            else
-            {
-                this.Imo = imo;
-            }
-
-            // to ensure "locode" is required (not null)
-            if (locode == null)
-            {
-                throw new InvalidDataException("locode is a required property for Schedule and cannot be null");
-            }
-            else
-            {
-                this.Locode = locode;
-            }
-            this.Eta = eta;
-            this.Etd = etd;
+            Imo = imo ?? throw new InvalidDataException("imo is a required property for Schedule and cannot be null");
+            Locode = locode ?? throw new InvalidDataException(
+                "locode is a required property for Schedule and cannot be null");
+            Eta = eta;
+            Etd = etd;
         }
 
         /// <summary>
@@ -148,7 +134,7 @@ namespace CloselinkAPI.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as Schedule);
+            return Equals(input as Schedule);
         }
 
         /// <summary>
@@ -163,44 +149,44 @@ namespace CloselinkAPI.Model
 
             return
                 (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
+                    Id == input.Id ||
+                    (Id != null &&
+                     Id.Equals(input.Id))
                 ) &&
                 (
-                    this.DateCreated == input.DateCreated ||
-                    (this.DateCreated != null &&
-                    this.DateCreated.Equals(input.DateCreated))
+                    DateCreated == input.DateCreated ||
+                    (DateCreated != null &&
+                     DateCreated.Equals(input.DateCreated))
                 ) &&
                 (
-                    this.DateUpdated == input.DateUpdated ||
-                    (this.DateUpdated != null &&
-                    this.DateUpdated.Equals(input.DateUpdated))
+                    DateUpdated == input.DateUpdated ||
+                    (DateUpdated != null &&
+                     DateUpdated.Equals(input.DateUpdated))
                 ) &&
                 (
-                    this.CustomerGroupId == input.CustomerGroupId ||
-                    (this.CustomerGroupId != null &&
-                    this.CustomerGroupId.Equals(input.CustomerGroupId))
+                    CustomerGroupId == input.CustomerGroupId ||
+                    (CustomerGroupId != null &&
+                     CustomerGroupId.Equals(input.CustomerGroupId))
                 ) &&
                 (
-                    this.Imo == input.Imo ||
-                    (this.Imo != null &&
-                    this.Imo.Equals(input.Imo))
+                    Imo == input.Imo ||
+                    (Imo != null &&
+                     Imo.Equals(input.Imo))
                 ) &&
                 (
-                    this.Eta == input.Eta ||
-                    (this.Eta != null &&
-                    this.Eta.Equals(input.Eta))
+                    Eta == input.Eta ||
+                    (Eta != null &&
+                     Eta.Equals(input.Eta))
                 ) &&
                 (
-                    this.Etd == input.Etd ||
-                    (this.Etd != null &&
-                    this.Etd.Equals(input.Etd))
+                    Etd == input.Etd ||
+                    (Etd != null &&
+                     Etd.Equals(input.Etd))
                 ) &&
                 (
-                    this.Locode == input.Locode ||
-                    (this.Locode != null &&
-                    this.Locode.Equals(input.Locode))
+                    Locode == input.Locode ||
+                    (Locode != null &&
+                     Locode.Equals(input.Locode))
                 );
         }
 
@@ -213,22 +199,22 @@ namespace CloselinkAPI.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
-                if (this.DateCreated != null)
-                    hashCode = hashCode * 59 + this.DateCreated.GetHashCode();
-                if (this.DateUpdated != null)
-                    hashCode = hashCode * 59 + this.DateUpdated.GetHashCode();
-                if (this.CustomerGroupId != null)
-                    hashCode = hashCode * 59 + this.CustomerGroupId.GetHashCode();
-                if (this.Imo != null)
-                    hashCode = hashCode * 59 + this.Imo.GetHashCode();
-                if (this.Eta != null)
-                    hashCode = hashCode * 59 + this.Eta.GetHashCode();
-                if (this.Etd != null)
-                    hashCode = hashCode * 59 + this.Etd.GetHashCode();
-                if (this.Locode != null)
-                    hashCode = hashCode * 59 + this.Locode.GetHashCode();
+                if (Id != null)
+                    hashCode = hashCode * 59 + Id.GetHashCode();
+                if (DateCreated != null)
+                    hashCode = hashCode * 59 + DateCreated.GetHashCode();
+                if (DateUpdated != null)
+                    hashCode = hashCode * 59 + DateUpdated.GetHashCode();
+                if (CustomerGroupId != null)
+                    hashCode = hashCode * 59 + CustomerGroupId.GetHashCode();
+                if (Imo != null)
+                    hashCode = hashCode * 59 + Imo.GetHashCode();
+                if (Eta != null)
+                    hashCode = hashCode * 59 + Eta.GetHashCode();
+                if (Etd != null)
+                    hashCode = hashCode * 59 + Etd.GetHashCode();
+                if (Locode != null)
+                    hashCode = hashCode * 59 + Locode.GetHashCode();
                 return hashCode;
             }
         }
@@ -238,10 +224,9 @@ namespace CloselinkAPI.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }
     }
-
 }

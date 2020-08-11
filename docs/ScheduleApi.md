@@ -35,7 +35,8 @@ namespace Example
             Configuration.Default.ApiKey = "YOUR_API_KEY";
 
             var apiInstance = new ScheduleApi();
-            var schedules = new List<Schedule>(){
+            var schedules = new List<Schedule>
+            {
                 new Schedule(
                     "imo1",
                     DateTime.Parse("2020-09-01T00:00:00.000Z"),
@@ -56,10 +57,7 @@ namespace Example
                 ApiResponse<List<Schedule>> response = apiInstance.Create(schedules);
                 Console.WriteLine("StatusCode: " + response.StatusCode);
                 var scheduleResult = response.Data;
-                scheduleResult.ForEach(delegate (Schedule schedule){
-                        Console.WriteLine(schedule);
-                    }
-                );
+                scheduleResult.ForEach(Console.WriteLine);
             }
             catch (Exception e)
             {
@@ -189,10 +187,7 @@ namespace Example
                 ApiResponse<List<Schedule>> response = apiInstance.GetList(imo, etaFrom, etaTo);
                 Console.WriteLine("StatusCode: " + response.StatusCode);
                 var scheduleResult = response.Data;
-                scheduleResult.ForEach(delegate (Schedule schedule){
-                        Console.WriteLine(schedule);
-                    }
-                );
+                scheduleResult.ForEach(Console.WriteLine);
             }
             catch (Exception e)
             {
@@ -251,7 +246,8 @@ namespace Example
             Configuration.Default.ApiKey = "YOUR_API_KEY";
 
             var apiInstance = new ScheduleApi();
-            var schedules = new List<Schedule>(){
+            var schedules = new List<Schedule>
+            {
                 new Schedule(
                     "imo1",
                     DateTime.Parse("2020-09-01T00:00:00.000Z"),
@@ -272,10 +268,7 @@ namespace Example
                 ApiResponse<List<Schedule>> response = apiInstance.Update(schedules);
                 Console.WriteLine("StatusCode: " + response.StatusCode);
                 var scheduleResult = response.Data;
-                scheduleResult.ForEach(delegate (Schedule schedule){
-                        Console.WriteLine(schedule);
-                    }
-                );
+                scheduleResult.ForEach(Console.WriteLine);
             }
             catch (Exception e)
             {
