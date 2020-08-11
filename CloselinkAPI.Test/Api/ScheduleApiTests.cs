@@ -207,7 +207,7 @@ namespace CloselinkAPI.Test
                                                            headerParams,
                                                            pathParams,
                                                            "application/json")
-                                                           ).Returns(Task.FromResult((object) new RestResponse
+                                                           ).Returns(Task.FromResult((object)new RestResponse
                                                            {
                                                                StatusCode = HttpStatusCode.OK,
                                                                Content = "{\"imo\":\"imo1\",\"eta\":\"2020-01-01T01:00:00+01:00\",\"etd\":\"2020-01-04T01:00:00+01:00\",\"locode\":\"DEHAM\"}"
@@ -297,7 +297,7 @@ namespace CloselinkAPI.Test
                                                            headerParams,
                                                            It.IsAny<Dictionary<String, String>>(),
                                                            "application/json")
-                                                           ).Returns(Task.FromResult((object)  new RestResponse
+                                                           ).Returns(Task.FromResult((object)new RestResponse
                                                            {
                                                                StatusCode = HttpStatusCode.OK,
                                                                Content = "[{\"imo\":\"imo1\",\"eta\":\"2020-01-01T01:00:00+01:00\",\"etd\":\"2020-01-04T01:00:00+01:00\",\"locode\":\"DEHAM\"},{\"imo\":\"imo2\",\"eta\":\"2020-02-01T01:00:00+01:00\",\"etd\":\"2020-02-04T01:00:00+01:00\",\"locode\":\"DEGEG\"}]"
@@ -432,7 +432,7 @@ namespace CloselinkAPI.Test
                                                            headerParams,
                                                            It.IsAny<Dictionary<String, String>>(),
                                                            "application/json")
-                                                           ).Returns(Task.FromResult((object) new RestResponse { StatusCode = HttpStatusCode.OK, Content = stockJsonString }));
+                                                           ).Returns(Task.FromResult((object)new RestResponse { StatusCode = HttpStatusCode.OK, Content = stockJsonString }));
 
 
             var response = await instance.UpdateAsync(schedules);

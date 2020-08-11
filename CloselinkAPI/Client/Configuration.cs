@@ -110,12 +110,15 @@ namespace CloselinkAPI.Client
         /// <summary>
         /// Gets or sets the base path for API access.
         /// </summary>
-        public virtual string BasePath {
+        public virtual string BasePath
+        {
             get { return _basePath; }
-            set {
+            set
+            {
                 _basePath = value;
                 // pass-through to ApiClient if it's set.
-                if(_apiClient != null) {
+                if (_apiClient != null)
+                {
                     _apiClient.RestClient.BaseUrl = new Uri(_basePath);
                 }
             }
@@ -127,7 +130,7 @@ namespace CloselinkAPI.Client
         /// </summary>
         public virtual int Timeout
         {
-            
+
             get { return ApiClient.RestClient.Timeout; }
             set { ApiClient.RestClient.Timeout = value; }
         }
@@ -169,7 +172,7 @@ namespace CloselinkAPI.Client
         {
             String report = "C# SDK (CloselinkAPI) Debug Report:\n";
             report += "    OS: " + System.Environment.OSVersion + "\n";
-            report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
+            report += "    .NET Framework Version: " + System.Environment.Version + "\n";
             report += "    Version of the API: v1\n";
             report += "    SDK Package Version: 1.0.0\n";
 

@@ -223,8 +223,8 @@ namespace CloselinkAPI.Model
                     hashCode = hashCode * 59 + this.Imo.GetHashCode();
                 if (this.DateMeasured != null)
                     hashCode = hashCode * 59 + this.DateMeasured.GetHashCode();
-                    hashCode = hashCode * 59 + this.Quantity.GetHashCode();
-                    hashCode = hashCode * 59 + this.OilType.GetHashCode();
+                hashCode = hashCode * 59 + this.Quantity.GetHashCode();
+                hashCode = hashCode * 59 + this.OilType.GetHashCode();
                 return hashCode;
             }
         }
@@ -239,7 +239,7 @@ namespace CloselinkAPI.Model
             yield break;
         }
 
-         /// <summary>
+        /// <summary>
         /// The OilType for the quantity
         /// </summary>
         /// <value>The OilType for the quantity</value>

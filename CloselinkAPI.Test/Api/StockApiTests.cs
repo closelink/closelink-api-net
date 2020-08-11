@@ -28,7 +28,7 @@ namespace CloselinkAPI.Test
 
             instance = new StockApi(configuration.Object);
         }
-        
+
         [Test]
         public void CreateTest()
         {
@@ -46,7 +46,7 @@ namespace CloselinkAPI.Test
                     Stock.OilTypeEnum.ME_CYL_HS
                 )
             };
-            
+
             Dictionary<String, String> headerParams = new Dictionary<String, String>(){
                 { "Accept", "application/json" },
                 { "apikey", "apiKey1" }
@@ -61,13 +61,13 @@ namespace CloselinkAPI.Test
                                                            headerParams,
                                                            It.IsAny<Dictionary<String, String>>(),
                                                            "application/json")
-                                                           ).Returns(new RestResponse { StatusCode = HttpStatusCode.OK , Content = stockJsonString});
+                                                           ).Returns(new RestResponse { StatusCode = HttpStatusCode.OK, Content = stockJsonString });
 
 
             var response = instance.Create(stocks);
 
 
-            Assert.AreEqual(HttpStatusCode.OK, (HttpStatusCode) response.StatusCode);
+            Assert.AreEqual(HttpStatusCode.OK, (HttpStatusCode)response.StatusCode);
             Assert.AreEqual(stocks, response.Data);
         }
 
@@ -88,7 +88,7 @@ namespace CloselinkAPI.Test
                     Stock.OilTypeEnum.ME_CYL_HS
                 )
             };
-            
+
             Dictionary<String, String> headerParams = new Dictionary<String, String>(){
                 { "Accept", "application/json" },
                 { "apikey", "apiKey1" }
@@ -103,7 +103,7 @@ namespace CloselinkAPI.Test
                                                            headerParams,
                                                            It.IsAny<Dictionary<String, String>>(),
                                                            "application/json")
-                                                           ).Returns(new RestResponse { StatusCode = HttpStatusCode.Forbidden});
+                                                           ).Returns(new RestResponse { StatusCode = HttpStatusCode.Forbidden });
 
 
             Assert.Throws<ApiException>(() => instance.Create(stocks));
@@ -126,7 +126,7 @@ namespace CloselinkAPI.Test
                     Stock.OilTypeEnum.ME_CYL_HS
                 )
             };
-            
+
             Dictionary<String, String> headerParams = new Dictionary<String, String>(){
                 { "Accept", "application/json" },
                 { "apikey", "apiKey1" }
@@ -141,15 +141,15 @@ namespace CloselinkAPI.Test
                                                            headerParams,
                                                            It.IsAny<Dictionary<String, String>>(),
                                                            "application/json")
-                                                           ).Returns(Task.FromResult((object) new RestResponse { StatusCode = HttpStatusCode.OK , Content = stockJsonString}));
+                                                           ).Returns(Task.FromResult((object)new RestResponse { StatusCode = HttpStatusCode.OK, Content = stockJsonString }));
 
 
             var response = await instance.CreateAsync(stocks);
 
-            Assert.AreEqual(HttpStatusCode.OK, (HttpStatusCode) response.StatusCode);
+            Assert.AreEqual(HttpStatusCode.OK, (HttpStatusCode)response.StatusCode);
             Assert.AreEqual(stocks, response.Data);
         }
 
     }
-    
+
 }
