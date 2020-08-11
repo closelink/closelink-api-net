@@ -46,13 +46,13 @@ namespace Example
                     "imo1",
                     DateTime.Parse("2020-08-01T00:00:00.000Z"),
                     5000,
-                    Stock.OilTypeEnum.AE_CIRC
+                    Stock.OilTypeEnum.AeCirc
                 ),
                 new Stock(
                     "imo1",
                     DateTime.Parse("2020-08-01T00:00:00.000Z"),
                     7000,
-                    Stock.OilTypeEnum.ME_CYL_HS
+                    Stock.OilTypeEnum.MeCylHs
                 )
             };
 
