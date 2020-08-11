@@ -1,5 +1,5 @@
-### Closelink.NET
-API Wrapper for the Closelink API (http://developer.closelink.net)
+### CloselinkAPI
+.NET API Wrapper for the Closelink API (http://developer.closelink.net)
 
 <a name="installation"></a>
 ## Installation
