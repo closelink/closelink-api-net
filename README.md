@@ -3,10 +3,12 @@
 
 <a name="installation"></a>
 ## Installation
+##### Package Manger
 ```
 Install-Package CloselinkAPI
 ```
 
+##### .NET CLI
 ```
 dotnet add package CloselinkAPI
 ```
@@ -77,22 +79,16 @@ namespace Example
 <a name="documentation-for-api-endpoints"></a>
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://public-api.closelink.net*
+ - [ScheduleApi](docs/ScheduleApi.md)
+ - [StockApi](docs/StockApi.md)
 
-Class | Method | HTTP request | Description
------------- | ------------- | ------------- | -------------
-*ScheduleApi* | [**Create**](docs/ScheduleApi.md#create) | **POST** /v1/schedule | Creates new Schedules
-*ScheduleApi* | [**Get**](docs/ScheduleApi.md#get) | **GET** /v1/schedule/{scheduleId} | Finds a Schedule by id
-*ScheduleApi* | [**GetList**](docs/ScheduleApi.md#getlist) | **GET** /v1/schedule/list | Finds a List of Schedules
-*ScheduleApi* | [**Update**](docs/ScheduleApi.md#update) | **PUT** /v1/schedule | Updates future Schedules (Overrides all future Schedules)
-*StockApi* | [**Create**](docs/StockApi.md#create) | **POST** /v1/stock | Creates new Stock data
 
 
 <a name="documentation-for-models"></a>
 ## Documentation for Models
 
- - [Model.Schedule](docs/Schedule.md)
- - [Model.Stock](docs/Stock.md)
+ - [Schedule](docs/Schedule.md)
+ - [Stock](docs/Stock.md)
 
 
 <a name="documentation-for-authorization"></a>
