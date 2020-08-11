@@ -16,31 +16,31 @@ Creates new Stock data
 ### Example
 ```csharp
 using System;
-using System.Diagnostics;
+using System.Collections.Generic;
 using CloselinkAPI.Api;
 using CloselinkAPI.Client;
 using CloselinkAPI.Model;
 
 namespace Example
 {
-    public class CreateExample
+    class Program
     {
-        public void main()
+        static void Main(string[] args)
         {
-            // Configure API key authorization: apikey
-            Configuration.Default.setApiKey("YOUR_API_KEY");
+            // Configure API key authorization
+            Configuration.Default.ApiKey = "YOUR_API_KEY";
 
             var apiInstance = new StockApi();
             var stocks = new List<Stock>(){
                 new Stock(
                     "imo1",
-                    DateTime.Parse("2020-01-01T00:00:00.000Z"),
+                    DateTime.Parse("2020-08-01T00:00:00.000Z"),
                     5000,
                     Stock.OilTypeEnum.AECIRC
                 ),
                 new Stock(
-                    "imo2",
-                    DateTime.Parse("2020-02-01T00:00:00.000Z"),
+                    "imo1",
+                    DateTime.Parse("2020-08-01T00:00:00.000Z"),
                     7000,
                     Stock.OilTypeEnum.MECYLHS
                 )
@@ -50,12 +50,17 @@ namespace Example
             {
                 // Creates new Stock data
                 ApiResponse<List<Stock>> response = apiInstance.Create(stocks);
-                Debug.WriteLine(response.StatusCode);
-                Debug.WriteLine(result.Data); // List<Stock>
+                Console.WriteLine("StatusCode: " + response.StatusCode);
+                var stockResult = response.Data;
+                stockResult.ForEach(delegate (Stock stock){
+                        Console.WriteLine(stock);
+                    }
+                );
+
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling StockApi.Create: " + e.Message );
+                Console.WriteLine("Exception when calling StockApi.Create: " + e.Message);
             }
         }
     }

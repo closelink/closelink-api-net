@@ -19,33 +19,34 @@ Creates new Schedules
 ### Example
 ```csharp
 using System;
-using System.Diagnostics;
+using System.Collections.Generic;
 using CloselinkAPI.Api;
 using CloselinkAPI.Client;
 using CloselinkAPI.Model;
 
 namespace Example
 {
-    public class CreateExample
+    class Program
     {
-        public void main()
+        static void Main(string[] args)
         {
-            // Configure API key authorization: apikey
-            Configuration.Default.setApiKey("YOUR_API_KEY");
+
+            // Configure API key authorization
+            Configuration.Default.ApiKey = "YOUR_API_KEY";
 
             var apiInstance = new ScheduleApi();
             var schedules = new List<Schedule>(){
                 new Schedule(
                     "imo1",
-                    DateTime.Parse("2020-01-01T00:00:00.000Z"),
-                    DateTime.Parse("2020-01-04T00:00:00.000Z"),
+                    DateTime.Parse("2020-09-01T00:00:00.000Z"),
+                    DateTime.Parse("2020-09-04T00:00:00.000Z"),
                     "DEHAM"
                 ),
                 new Schedule(
-                    "imo2",
-                    DateTime.Parse("2020-02-01T00:00:00.000Z"),
-                    DateTime.Parse("2020-02-04T00:00:00.000Z"),
-                    "DEGEG"
+                    "imo1",
+                    DateTime.Parse("2020-09-06T00:00:00.000Z"),
+                    DateTime.Parse("2020-09-07T00:00:00.000Z"),
+                    "AUSYD"
                 )
             };
 
@@ -53,12 +54,16 @@ namespace Example
             {
                 // Creates new Schedule data
                 ApiResponse<List<Schedule>> response = apiInstance.Create(schedules);
-                Debug.WriteLine(response.StatusCode);
-                Debug.WriteLine(result.Data); // List<Schedule>
+                Console.WriteLine("StatusCode: " + response.StatusCode);
+                var scheduleResult = response.Data;
+                scheduleResult.ForEach(delegate (Schedule schedule){
+                        Console.WriteLine(schedule);
+                    }
+                );
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling ScheduleApi.Create: " + e.Message );
+                Console.WriteLine("Exception when calling ScheduleApi.Create: " + e.Message );
             }
         }
     }
@@ -95,33 +100,33 @@ Finds a Schedule by id
 ### Example
 ```csharp
 using System;
-using System.Diagnostics;
 using CloselinkAPI.Api;
 using CloselinkAPI.Client;
 using CloselinkAPI.Model;
 
 namespace Example
 {
-    public class GetExample
+    class Program
     {
-        public void main()
+        static void Main(string[] args)
         {
-            // Configure API key authorization: apikey
-            Configuration.Default.setApiKey("YOUR_API_KEY");
+
+            // Configure API key authorization
+            Configuration.Default.ApiKey = "YOUR_API_KEY";
 
             var apiInstance = new ScheduleApi();
-            var schedules = "exampleId";
+            var scheduleId = "exampleId";
 
             try
             {
                 // Creates new Schedule data
                 ApiResponse<Schedule> response = apiInstance.Get(scheduleId);
-                Debug.WriteLine(response.StatusCode);
-                Debug.WriteLine(result.Data); // Schedule
+                Console.WriteLine(response.StatusCode);
+                Console.WriteLine(response.Data); 
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling ScheduleApi.Get: " + e.Message );
+                Console.WriteLine("Exception when calling ScheduleApi.Get: " + e.Message );
             }
         }
     }
@@ -158,35 +163,40 @@ Finds a List of Schedules
 ### Example
 ```csharp
 using System;
-using System.Diagnostics;
+using System.Collections.Generic;
 using CloselinkAPI.Api;
 using CloselinkAPI.Client;
 using CloselinkAPI.Model;
 
 namespace Example
 {
-    public class GetListExample
+    class Program
     {
-        public void main()
+        static void Main(string[] args)
         {
-            // Configure API key authorization: apikey
-            Configuration.Default.setApiKey("YOUR_API_KEY");
 
-            var apiInstance = new ScheduleApi();
-            var imo = imo_example;  // string | Optional imo filter (optional) 
-            var etaFrom = 2013-10-20T19:20:30+01:00;  // DateTime? | Optional eta from date filter (optional) 
-            var etaTo = 2013-10-20T19:20:30+01:00;  // DateTime? | Optional eta to date filter (optional) 
+            // Configure API key authorization
+            Configuration.Default.ApiKey = "YOUR_API_KEY";
+
+             var apiInstance = new ScheduleApi();
+            var imo = "9703291";  // string | Optional imo filter (optional) 
+            var etaFrom = DateTime.Parse("2020-08-31T00:00:00.000Z");  // DateTime? | Optional eta from date filter (optional) 
+            var etaTo = DateTime.Parse("2020-09-10T00:00:00.000Z");  // DateTime? | Optional eta to date filter (optional)  
 
             try
             {
-                // Finds a List of Schedules
-                ApiResponse<List<Schedule>> result = apiInstance.GetList(imo, etaFrom, etaTo);
-                Debug.WriteLine(response.StatusCode);
-                Debug.WriteLine(result.Data); // List<Schedule>
+                // Creates new Schedule data
+                ApiResponse<List<Schedule>> response = apiInstance.GetList(imo, etaFrom, etaTo);
+                Console.WriteLine("StatusCode: " + response.StatusCode);
+                var scheduleResult = response.Data;
+                scheduleResult.ForEach(delegate (Schedule schedule){
+                        Console.WriteLine(schedule);
+                    }
+                );
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling ScheduleApi.GetList: " + e.Message );
+                Console.WriteLine("Exception when calling ScheduleApi.GetList: " + e.Message );
             }
         }
     }
@@ -225,46 +235,51 @@ Updates future Schedules (Overrides all future Schedules)
 ### Example
 ```csharp
 using System;
-using System.Diagnostics;
+using System.Collections.Generic;
 using CloselinkAPI.Api;
 using CloselinkAPI.Client;
 using CloselinkAPI.Model;
 
 namespace Example
 {
-    public class UpdateExample
+    class Program
     {
-        public void main()
+        static void Main(string[] args)
         {
-            // Configure API key authorization: apikey
-            Configuration.Default.setApiKey("YOUR_API_KEY");
+
+            // Configure API key authorization
+            Configuration.Default.ApiKey = "YOUR_API_KEY";
 
             var apiInstance = new ScheduleApi();
             var schedules = new List<Schedule>(){
                 new Schedule(
                     "imo1",
-                    DateTime.Parse("2020-01-01T00:00:00.000Z"),
-                    DateTime.Parse("2020-01-04T00:00:00.000Z"),
+                    DateTime.Parse("2020-09-01T00:00:00.000Z"),
+                    DateTime.Parse("2020-09-04T00:00:00.000Z"),
                     "DEHAM"
                 ),
                 new Schedule(
-                    "imo2",
-                    DateTime.Parse("2020-02-01T00:00:00.000Z"),
-                    DateTime.Parse("2020-02-04T00:00:00.000Z"),
-                    "DEGEG"
+                    "imo1",
+                    DateTime.Parse("2020-09-06T00:00:00.000Z"),
+                    DateTime.Parse("2020-09-07T00:00:00.000Z"),
+                    "AUSYD"
                 )
             };
 
             try
             {
-                // Updates future Schedules (Overrides all future Schedules)
-                ApiResponse<List<Schedule>> result = apiInstance.Update(schedules);
-                Debug.WriteLine(response.StatusCode);
-                Debug.WriteLine(result.Data); // List<Schedule>
+                // Updates new Schedule data
+                ApiResponse<List<Schedule>> response = apiInstance.Update(schedules);
+                Console.WriteLine("StatusCode: " + response.StatusCode);
+                var scheduleResult = response.Data;
+                scheduleResult.ForEach(delegate (Schedule schedule){
+                        Console.WriteLine(schedule);
+                    }
+                );
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling ScheduleApi.Update: " + e.Message );
+                Console.WriteLine("Exception when calling ScheduleApi.Update: " + e.Message );
             }
         }
     }
