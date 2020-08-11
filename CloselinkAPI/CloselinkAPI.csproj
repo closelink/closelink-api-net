@@ -12,15 +12,11 @@
     <version>1.0.3</version>
     <authors>Tobias Schumacher</authors>
     <owners>Closelink GmbH</owners>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <developmentDependency>false</developmentDependency>
-    <copyright>Copyright © 2020</copyright>
 
     <PackageProjectUrl>https://github.com/closelink/closelink-api-net</PackageProjectUrl>
     <RepositoryUrl>https://github.com/closelink/closelink-api-net</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
-
-    <license>https://github.com/closelink/closelink-api-net/blob/master/LICENSE.txt</license>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
 
     <RootNamespace>CloselinkAPI</RootNamespace>
     <AssemblyName>CloselinkAPI</AssemblyName>
