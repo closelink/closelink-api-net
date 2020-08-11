@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **Id** | **string** | Internal id | (read-only) 
 **DateCreated** | **DateTime?** | The date-time the object was created | (read-only) 
 **DateUpdated** | **DateTime?** | The date-time the object was last updated | (read-only) 
-**CustomerId** | **string** | Internal customerId | (read-only) 
+**CustomerGroupId** | **string** | Internal customerId | (read-only) 
 **Imo** | **string** | The imo of the vessel | 
 **Eta** | **DateTime** | The estimated time of arrival | 
 **Etd** | **DateTime** | The estimated time of departure | 

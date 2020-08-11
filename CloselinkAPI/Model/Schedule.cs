@@ -52,8 +52,8 @@ namespace CloselinkAPI.Model
         [DataMember(Name = "dateUpdated", EmitDefaultValue = false)]
         public DateTime? DateUpdated { get; set; }
 
-        [DataMember(Name = "customerId", EmitDefaultValue = false)]
-        public string CustomerId { get; set; }
+        [DataMember(Name = "CustomerGroupId", EmitDefaultValue = false)]
+        public string CustomerGroupId { get; set; }
 
         [DataMember(Name = "imo", EmitDefaultValue = false)]
         public string Imo { get; set; }
@@ -78,7 +78,7 @@ namespace CloselinkAPI.Model
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  DateCreated: ").Append(DateCreated).Append("\n");
             sb.Append("  DateUpdated: ").Append(DateUpdated).Append("\n");
-            sb.Append("  CustomerId: ").Append(CustomerId).Append("\n");
+            sb.Append("  CustomerGroupId: ").Append(CustomerGroupId).Append("\n");
             sb.Append("  Imo: ").Append(Imo).Append("\n");
             sb.Append("  Eta: ").Append(Eta).Append("\n");
             sb.Append("  Etd: ").Append(Etd).Append("\n");
@@ -133,9 +133,9 @@ namespace CloselinkAPI.Model
                     this.DateUpdated.Equals(input.DateUpdated))
                 ) &&
                 (
-                    this.CustomerId == input.CustomerId ||
-                    (this.CustomerId != null &&
-                    this.CustomerId.Equals(input.CustomerId))
+                    this.CustomerGroupId == input.CustomerGroupId ||
+                    (this.CustomerGroupId != null &&
+                    this.CustomerGroupId.Equals(input.CustomerGroupId))
                 ) &&
                 (
                     this.Imo == input.Imo ||
@@ -174,8 +174,8 @@ namespace CloselinkAPI.Model
                     hashCode = hashCode * 59 + this.DateCreated.GetHashCode();
                 if (this.DateUpdated != null)
                     hashCode = hashCode * 59 + this.DateUpdated.GetHashCode();
-                if (this.CustomerId != null)
-                    hashCode = hashCode * 59 + this.CustomerId.GetHashCode();
+                if (this.CustomerGroupId != null)
+                    hashCode = hashCode * 59 + this.CustomerGroupId.GetHashCode();
                 if (this.Imo != null)
                     hashCode = hashCode * 59 + this.Imo.GetHashCode();
                 if (this.Eta != null)
