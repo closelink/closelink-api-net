@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **Imo** | **string** | The imo of the vessel | 
 **DateMeasured** | **DateTime** | Date Stock was measured | 
 **Quantity** | **long** | Quantity in liters | 
-**OilType** | **Stock.OilTypeEnum** | The OilType for the quantity | [MeCirc, AeCirc, MeCylHs, MeCylLs]
+**OilType** | **Stock.OilTypeEnum** | The OilType for the quantity | [MeCirc, AeCirc, MeCylHs, MeCylLs, MeCylUls, AeCircUls]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

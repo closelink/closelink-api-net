@@ -249,7 +249,17 @@ namespace CloselinkAPI.Model
             /// <summary>
             /// Enum MeCylLs for value: ME_CYL_LS
             /// </summary>
-            [EnumMember(Value = "ME_CYL_LS")] MeCylLs = 4
+            [EnumMember(Value = "ME_CYL_LS")] MeCylLs = 4,
+            
+            /// <summary>
+            /// Enum MeCylUls for value: ME_CYL_ULS
+            /// </summary>
+            [EnumMember(Value = "ME_CYL_ULS")] MeCylUls = 5,
+                
+            /// <summary>
+            /// Enum AeCircUls for value: AE_CIRC_ULS
+            /// </summary>
+            [EnumMember(Value = "AE_CIRC_ULS")] AeCircUls = 6
         }
     }
 }
