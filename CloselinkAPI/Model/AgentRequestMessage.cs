@@ -25,12 +25,12 @@ namespace CloselinkAPI.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AgentRequestMessage" /> class.
         /// </summary>
-        /// <param name="name">name.</param>
-        /// <param name="address">address.</param>
-        /// <param name="contact">contact.</param>
-        /// <param name="portIds">portIds.</param>
-        /// <param name="note">note.</param>
-        /// <param name="customerId">customerId.</param>
+        /// <param name="name">The name of the agency.</param>
+        /// <param name="address">Information about the address of an agency.</param>
+        /// <param name="contact">Information about the contact details of an agency.</param>
+        /// <param name="portIds">List of ports of an agency.</param>
+        /// <param name="note">Additional notes for an agent.</param>
+        /// <param name="customerId">The customer ID of an agent.</param>
         public AgentRequestMessage( string name = default(string), AddressMessage address = default(AddressMessage), ContactMessage contact = default(ContactMessage), List<string> portIds = default(List<string>), string note = default(string), string customerId = default(string))
         {
             this.Name = name;
@@ -44,14 +44,14 @@ namespace CloselinkAPI.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AgentRequestMessage" /> class.
         /// </summary>
-        /// <param name="id">id.</param>
-        /// <param name="name">name.</param>
-        /// <param name="address">address.</param>
-        /// <param name="contact">contact.</param>
-        /// <param name="portIds">portIds.</param>
-        /// <param name="note">note.</param>
-        /// <param name="customerId">customerId.</param>
-        /// <param name="externalId">externalId.</param>
+        /// <param name="id">The ID of the agent.</param>
+        /// <param name="name">The name of the agency.</param>
+        /// <param name="address">Information about the address of an agency.</param>
+        /// <param name="contact">Information about the contact details of an agency.</param>
+        /// <param name="portIds">List of ports of an agency.</param>
+        /// <param name="note">Additional notes for an agent.</param>
+        /// <param name="customerId">The customer ID of an agent.</param>
+        /// <param name="externalId">The external ID of an agent.</param>
         public AgentRequestMessage(string id = default(string), string name = default(string), AddressMessage address = default(AddressMessage), ContactMessage contact = default(ContactMessage), List<string> portIds = default(List<string>), string note = default(string), string customerId = default(string), string externalId = default(string))
         {
             this.Id = id;
@@ -65,50 +65,58 @@ namespace CloselinkAPI.Model
         }
         
         /// <summary>
-        /// Gets or Sets Id
+        /// The ID of the agent
         /// </summary>
+        /// <value>The ID of the agent</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets Name
+        /// The name of the agency
         /// </summary>
+        /// <value>The name of the agency</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets Address
+        /// Information about the address of an agency
         /// </summary>
+        /// <value>Information about the address of an agency</value>
         [DataMember(Name="address", EmitDefaultValue=false)]
         public AddressMessage Address { get; set; }
 
         /// <summary>
-        /// Gets or Sets Contact
+        /// Information about the contact details of an agency
         /// </summary>
+        /// <value>Information about the contact details of an agency</value>
         [DataMember(Name="contact", EmitDefaultValue=false)]
         public ContactMessage Contact { get; set; }
 
         /// <summary>
-        /// Gets or Sets PortIds
+        /// List of ports of an agency
         /// </summary>
+        /// <value>List of ports of an agency</value>
         [DataMember(Name="portIds", EmitDefaultValue=false)]
         public List<string> PortIds { get; set; }
 
         /// <summary>
-        /// Gets or Sets Note
+        /// Additional notes for an agent
         /// </summary>
+        /// <value>Additional notes for an agent</value>
         [DataMember(Name="note", EmitDefaultValue=false)]
         public string Note { get; set; }
 
         /// <summary>
-        /// Gets or Sets CustomerId
+        /// The customer ID of an agent
         /// </summary>
+        /// <value>The customer ID of an agent</value>
         [DataMember(Name="customerId", EmitDefaultValue=false)]
         public string CustomerId { get; set; }
 
         /// <summary>
-        /// Gets or Sets ExternalId
+        /// The external ID of an agent
         /// </summary>
+        /// <value>The external ID of an agent</value>
         [DataMember(Name="externalId", EmitDefaultValue=false)]
         public string ExternalId { get; set; }
 

@@ -96,7 +96,7 @@ namespace CloselinkAPI.Api
         /// Create agent 
         /// </summary>
         /// <exception cref="CloselinkAPI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
+        /// <param name="body">AgentRequestMessage</param>
         /// <returns>Task of ApiResponse (AgentResponseMessage)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<AgentResponseMessage>> CreateAgentAsync(AgentRequestMessage body)
         {
@@ -138,7 +138,7 @@ namespace CloselinkAPI.Api
         /// Create multiple agents 
         /// </summary>
         /// <exception cref="CloselinkAPI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
+        /// <param name="body">AgentsRequestMessage</param>
         /// <returns>ApiResponse of AgentsResponseMessage</returns>
         public ApiResponse<AgentsResponseMessage> CreateAgentBulk(AgentsRequestMessage body)
         {
@@ -179,7 +179,7 @@ namespace CloselinkAPI.Api
         /// Create multiple agents 
         /// </summary>
         /// <exception cref="CloselinkAPI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
+        /// <param name="body">AgentsRequestMessage</param>
         /// <returns>Task of ApiResponse (AgentsResponseMessage)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<AgentsResponseMessage>> CreateAgentBulkAsync(AgentsRequestMessage body)
         {
@@ -220,7 +220,7 @@ namespace CloselinkAPI.Api
         /// Find agent by external ID 
         /// </summary>
         /// <exception cref="CloselinkAPI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="externalId"></param>
+        /// <param name="externalId">External ID</param>
         /// <returns>ApiResponse of AgentResponseMessage</returns>
         public ApiResponse<AgentResponseMessage> FindAgentByExternalId(string externalId)
         {
@@ -266,7 +266,7 @@ namespace CloselinkAPI.Api
         /// Find agent by external ID 
         /// </summary>
         /// <exception cref="CloselinkAPI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="externalId"></param>
+        /// <param name="externalId">External ID</param>
         /// <returns>Task of ApiResponse (AgentResponseMessage)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<AgentResponseMessage>> FindAgentByExternalIdAsync(string externalId)
         {
@@ -312,7 +312,7 @@ namespace CloselinkAPI.Api
         /// Find agent by ID 
         /// </summary>
         /// <exception cref="CloselinkAPI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">Agent ID</param>
         /// <returns>ApiResponse of AgentResponseMessage</returns>
         public ApiResponse<AgentResponseMessage> FindAgentById(string id)
         {
@@ -358,7 +358,7 @@ namespace CloselinkAPI.Api
         /// Find agent by ID 
         /// </summary>
         /// <exception cref="CloselinkAPI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">Agent ID</param>
         /// <returns>Task of ApiResponse (AgentResponseMessage)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<AgentResponseMessage>> FindAgentByIdAsync(string id)
         {
@@ -513,7 +513,7 @@ namespace CloselinkAPI.Api
         /// </summary>
         /// <exception cref="CloselinkAPI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Agent ID</param>
-        /// <param name="body"> (optional)</param>
+        /// <param name="body">AgentRequestMessage</param>
         /// <returns>ApiResponse of AgentResponseMessage</returns>
         public ApiResponse<AgentResponseMessage> UpdateAgent(string id, AgentRequestMessage body)
         {
@@ -560,7 +560,7 @@ namespace CloselinkAPI.Api
         /// </summary>
         /// <exception cref="CloselinkAPI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Agent ID</param>
-        /// <param name="body"> (optional)</param>
+        /// <param name="body">AgentRequestMessage</param>
         /// <returns>Task of ApiResponse (AgentResponseMessage)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<AgentResponseMessage>> UpdateAgentAsync(string id, AgentRequestMessage body)
         {
@@ -606,7 +606,7 @@ namespace CloselinkAPI.Api
         /// Update multiple agents 
         /// </summary>
         /// <exception cref="CloselinkAPI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
+        /// <param name="body">AgentsRequestMessage</param>
         /// <returns>ApiResponse of AgentsResponseMessage</returns>
         public ApiResponse<AgentsResponseMessage> UpdateAgentBulk(AgentsRequestMessage body)
         {
@@ -647,9 +647,9 @@ namespace CloselinkAPI.Api
         /// Update multiple agents 
         /// </summary>
         /// <exception cref="CloselinkAPI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
+        /// <param name="body">AgentsRequestMessage</param>
         /// <returns>Task of ApiResponse (AgentsResponseMessage)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AgentsResponseMessage>> UpdateAgentBulkAsync(AgentsRequestMessage body = null)
+        public async System.Threading.Tasks.Task<ApiResponse<AgentsResponseMessage>> UpdateAgentBulkAsync(AgentsRequestMessage body)
         {
             const string localVarPath = "/v1/agents/bulk";
             var localVarPathParams = new Dictionary<string, string>();
@@ -688,8 +688,8 @@ namespace CloselinkAPI.Api
         /// Update agent by external ID 
         /// </summary>
         /// <exception cref="CloselinkAPI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="externalId"></param>
-        /// <param name="body"> (optional)</param>
+        /// <param name="externalId">External ID</param>
+        /// <param name="body">AgentRequestMessage</param>
         /// <returns>ApiResponse of AgentResponseMessage</returns>
         public ApiResponse<AgentResponseMessage> UpdateAgentByExternalId(string externalId, AgentRequestMessage body)
         {
@@ -735,8 +735,8 @@ namespace CloselinkAPI.Api
         /// Update agent by external ID 
         /// </summary>
         /// <exception cref="CloselinkAPI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="externalId"></param>
-        /// <param name="body"> (optional)</param>
+        /// <param name="externalId">External ID</param>
+        /// <param name="body">AgentRequestMessage</param>
         /// <returns>Task of ApiResponse (AgentResponseMessage)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<AgentResponseMessage>> UpdateAgentByExternalIdAsync(string externalId, AgentRequestMessage body)
         {

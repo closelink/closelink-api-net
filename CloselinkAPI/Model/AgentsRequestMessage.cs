@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Text;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
@@ -17,15 +18,16 @@ namespace CloselinkAPI.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AgentsRequestMessage" /> class.
         /// </summary>
-        /// <param name="agents">agents.</param>
+        /// <param name="agents">List of agents (required).</param>
         public AgentsRequestMessage(List<AgentRequestMessage> agents = default(List<AgentRequestMessage>))
         {
-            this.Agents = agents;
+            this.Agents = agents ?? throw new InvalidDataException("agents is a required property for AgentsRequestMessage and cannot be null");
         }
         
         /// <summary>
-        /// Gets or Sets Agents
+        /// List of agents
         /// </summary>
+        /// <value>List of agents</value>
         [DataMember(Name="agents", EmitDefaultValue=false)]
         public List<AgentRequestMessage> Agents { get; set; }
 

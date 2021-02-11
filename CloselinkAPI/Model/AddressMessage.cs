@@ -24,11 +24,11 @@ namespace CloselinkAPI.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AddressMessage" /> class.
         /// </summary>
-        /// <param name="street">street.</param>
-        /// <param name="streetNumber">streetNumber.</param>
-        /// <param name="zipCode">zipCode.</param>
-        /// <param name="city">city.</param>
-        /// <param name="country">country.</param>
+        /// <param name="street">The street name.</param>
+        /// <param name="streetNumber">The street number.</param>
+        /// <param name="zipCode">The zip code of the city.</param>
+        /// <param name="city">The name of the city.</param>
+        /// <param name="country">The name of the country.</param>
         public AddressMessage(string street = default(string), string streetNumber = default(string), string zipCode = default(string), string city = default(string), string country = default(string))
         {
             this.Street = street;
@@ -39,32 +39,37 @@ namespace CloselinkAPI.Model
         }
         
         /// <summary>
-        /// Gets or Sets Street
+        /// The street name
         /// </summary>
+        /// <value>The street name</value>
         [DataMember(Name="street", EmitDefaultValue=false)]
         public string Street { get; set; }
 
-        /// <summary>
-        /// Gets or Sets StreetNumber
+       /// <summary>
+        /// The street number
         /// </summary>
+        /// <value>The street number</value>
         [DataMember(Name="streetNumber", EmitDefaultValue=false)]
         public string StreetNumber { get; set; }
-
+      
         /// <summary>
-        /// Gets or Sets ZipCode
+        /// The zip code of the city
         /// </summary>
+        /// <value>The zip code of the city</value>
         [DataMember(Name="zipCode", EmitDefaultValue=false)]
         public string ZipCode { get; set; }
 
         /// <summary>
-        /// Gets or Sets City
+        /// The name of the city
         /// </summary>
+        /// <value>The name of the city</value>
         [DataMember(Name="city", EmitDefaultValue=false)]
         public string City { get; set; }
 
         /// <summary>
-        /// Gets or Sets Country
+        /// The name of the country
         /// </summary>
+        /// <value>The name of the country</value>
         [DataMember(Name="country", EmitDefaultValue=false)]
         public string Country { get; set; }
 
