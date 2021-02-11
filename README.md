@@ -78,6 +78,7 @@ namespace Example
 
  - [ScheduleApi](docs/ScheduleApi.md)
  - [StockApi](docs/StockApi.md)
+ - [AgentsApi](docs/AgentsApi.md)
 
 
 
