@@ -31,7 +31,7 @@ namespace CloselinkAPI.Model
         /// <param name="portIds">List of ports of an agency.</param>
         /// <param name="note">Additional notes for an agent.</param>
         /// <param name="customerId">The customer ID of an agent.</param>
-        public AgentRequestMessage( string name = default(string), AddressMessage address = default(AddressMessage), ContactMessage contact = default(ContactMessage), List<string> portIds = default(List<string>), string note = default(string), string customerId = default(string))
+        public AgentRequestMessage(string name = default(string), AddressMessage address = default(AddressMessage), ContactMessage contact = default(ContactMessage), List<string> portIds = default(List<string>), string note = default(string), string customerId = default(string))
         {
             this.Name = name;
             this.Address = address;
@@ -44,7 +44,6 @@ namespace CloselinkAPI.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AgentRequestMessage" /> class.
         /// </summary>
-        /// <param name="id">The ID of the agent.</param>
         /// <param name="name">The name of the agency.</param>
         /// <param name="address">Information about the address of an agency.</param>
         /// <param name="contact">Information about the contact details of an agency.</param>
@@ -52,9 +51,8 @@ namespace CloselinkAPI.Model
         /// <param name="note">Additional notes for an agent.</param>
         /// <param name="customerId">The customer ID of an agent.</param>
         /// <param name="externalId">The external ID of an agent.</param>
-        public AgentRequestMessage(string id = default(string), string name = default(string), AddressMessage address = default(AddressMessage), ContactMessage contact = default(ContactMessage), List<string> portIds = default(List<string>), string note = default(string), string customerId = default(string), string externalId = default(string))
+        public AgentRequestMessage(string name = default(string), AddressMessage address = default(AddressMessage), ContactMessage contact = default(ContactMessage), List<string> portIds = default(List<string>), string note = default(string), string customerId = default(string), string externalId = default(string))
         {
-            this.Id = id;
             this.Name = name;
             this.Address = address;
             this.Contact = contact;
@@ -62,6 +60,29 @@ namespace CloselinkAPI.Model
             this.Note = note;
             this.CustomerId = customerId;
             this.ExternalId = externalId;
+        }
+
+         /// <summary>
+        /// Initializes a new instance of the <see cref="AgentRequestMessage" /> class.
+        /// </summary>
+        /// <param name="name">The name of the agency.</param>
+        /// <param name="address">Information about the address of an agency.</param>
+        /// <param name="contact">Information about the contact details of an agency.</param>
+        /// <param name="portIds">List of ports of an agency.</param>
+        /// <param name="note">Additional notes for an agent.</param>
+        /// <param name="customerId">The customer ID of an agent.</param>
+        /// <param name="externalId">The external ID of an agent.</param>
+        /// <param name="id">The ID of an agent.</param>
+        public AgentRequestMessage(string name = default(string), AddressMessage address = default(AddressMessage), ContactMessage contact = default(ContactMessage), List<string> portIds = default(List<string>), string note = default(string), string customerId = default(string), string externalId = default(string), string id = default(string))
+        {
+            this.Name = name;
+            this.Address = address;
+            this.Contact = contact;
+            this.PortIds = portIds;
+            this.Note = note;
+            this.CustomerId = customerId;
+            this.ExternalId = externalId;
+            this.Id = id;
         }
         
         /// <summary>
