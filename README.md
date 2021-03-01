@@ -78,6 +78,7 @@ namespace Example
 
  - [ScheduleApi](docs/ScheduleApi.md)
  - [StockApi](docs/StockApi.md)
+ - [AgentsApi](docs/AgentsApi.md)
 
 
 
@@ -86,6 +87,12 @@ namespace Example
 
  - [Schedule](docs/Schedule.md)
  - [Stock](docs/Stock.md)
+ - [AgentRequestMessage](docs/AgentRequestMessage.md)
+ - [AgentsRequestMessage](docs/AgentsRequestMessage.md)
+ - [AgentResponseMessage](docs/AgentResponseMessage.md)
+ - [AgentsResponseMessage](docs/AgentsResponseMessage.md)
+ - [AddressMessage](docs/AddressMessage.md)
+ - [ContactMessage](docs/ContactMessage.md)
 
 
 <a name="documentation-for-authorization"></a>
