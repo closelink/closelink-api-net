@@ -28,15 +28,15 @@ namespace CloselinkAPI.Model
         /// <param name="name">The name of the agency.</param>
         /// <param name="address">Information about the address of an agency.</param>
         /// <param name="contact">Information about the contact details of an agency.</param>
-        /// <param name="LoCodes">List of loCodes of an agency.</param>
+        /// <param name="loCodes">List of loCodes of an agency.</param>
         /// <param name="note">Additional notes for an agent.</param>
         /// <param name="customerId">The customer ID of an agent.</param>
-        public AgentMessage(string name = default(string), AddressMessage address = default(AddressMessage), ContactMessage contact = default(ContactMessage), List<string> LoCodes = default(List<string>), string note = default(string), string customerId = default(string))
+        public AgentMessage(string name = default(string), AddressMessage address = default(AddressMessage), ContactMessage contact = default(ContactMessage), List<string> loCodes = default(List<string>), string note = default(string), string customerId = default(string))
         {
             this.Name = name;
             this.Address = address;
             this.Contact = contact;
-            this.LoCodes = LoCodes;
+            this.LoCodes = loCodes;
             this.Note = note;
             this.CustomerId = customerId;
         }
@@ -47,16 +47,16 @@ namespace CloselinkAPI.Model
         /// <param name="name">The name of the agency.</param>
         /// <param name="address">Information about the address of an agency.</param>
         /// <param name="contact">Information about the contact details of an agency.</param>
-        /// <param name="LoCodes">List of loCodes of an agency.</param>
+        /// <param name="loCodes">List of loCodes of an agency.</param>
         /// <param name="note">Additional notes for an agent.</param>
         /// <param name="customerId">The customer ID of an agent.</param>
         /// <param name="externalId">The external ID of an agent.</param>
-        public AgentMessage(string name = default(string), AddressMessage address = default(AddressMessage), ContactMessage contact = default(ContactMessage), List<string> LoCodes = default(List<string>), string note = default(string), string customerId = default(string), string externalId = default(string))
+        public AgentMessage(string name = default(string), AddressMessage address = default(AddressMessage), ContactMessage contact = default(ContactMessage), List<string> loCodes = default(List<string>), string note = default(string), string customerId = default(string), string externalId = default(string))
         {
             this.Name = name;
             this.Address = address;
             this.Contact = contact;
-            this.LoCodes = LoCodes;
+            this.LoCodes = loCodes;
             this.Note = note;
             this.CustomerId = customerId;
             this.ExternalId = externalId;
@@ -68,17 +68,17 @@ namespace CloselinkAPI.Model
         /// <param name="name">The name of the agency.</param>
         /// <param name="address">Information about the address of an agency.</param>
         /// <param name="contact">Information about the contact details of an agency.</param>
-        /// <param name="LoCodes">List of loCodes of an agency.</param>
+        /// <param name="loCodes">List of loCodes of an agency.</param>
         /// <param name="note">Additional notes for an agent.</param>
         /// <param name="customerId">The customer ID of an agent.</param>
         /// <param name="externalId">The external ID of an agent.</param>
         /// <param name="id">The ID of an agent.</param>
-        public AgentMessage(string name = default(string), AddressMessage address = default(AddressMessage), ContactMessage contact = default(ContactMessage), List<string> LoCodes = default(List<string>), string note = default(string), string customerId = default(string), string externalId = default(string), string id = default(string))
+        public AgentMessage(string name = default(string), AddressMessage address = default(AddressMessage), ContactMessage contact = default(ContactMessage), List<string> loCodes = default(List<string>), string note = default(string), string customerId = default(string), string externalId = default(string), string id = default(string))
         {
             this.Name = name;
             this.Address = address;
             this.Contact = contact;
-            this.LoCodes = LoCodes;
+            this.LoCodes = loCodes;
             this.Note = note;
             this.CustomerId = customerId;
             this.ExternalId = externalId;
