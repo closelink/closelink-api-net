@@ -32,7 +32,7 @@ namespace CloselinkAPI.Test.Api
         public void CreateAgentTest()
         {
             var agentRequest = createAgentMessage();
-            var agentResponse = createAgentResponse();
+            var agentResponse = createAgentMessage();
 
             var headerParams = new Dictionary<string, string>
             {
@@ -60,7 +60,7 @@ namespace CloselinkAPI.Test.Api
         public void CreateAgentFailTest()
         {
             var agentRequest = createAgentMessage();
-            var agentResponse = createAgentResponse();
+            var agentResponse = createAgentMessage();
 
             var headerParams = new Dictionary<string, string>
             {
@@ -85,7 +85,7 @@ namespace CloselinkAPI.Test.Api
         public async Task CreateAgentAsyncTest()
         {
             var agentRequest = createAgentMessage();
-            var agentResponse = createAgentResponse();
+            var agentResponse = createAgentMessage();
 
             var headerParams = new Dictionary<string, string>
             {
@@ -112,8 +112,8 @@ namespace CloselinkAPI.Test.Api
         [Test]
         public void CreateAgentBulkTest()
         {
-            var agentRequests = createAgentsRequest();
-            var agentResponse = createAgentsResponse();
+            var agentRequests = createAgentsMessage();
+            var agentResponse = createAgentsMessage();
 
             var headerParams = new Dictionary<string, string>
             {
@@ -140,8 +140,8 @@ namespace CloselinkAPI.Test.Api
         [Test]
         public async Task CreateAgentBulkAsyncTest()
         {
-            var agentRequests = createAgentsRequest();
-            var agentResponse = createAgentsResponse();
+            var agentRequests = createAgentsMessage();
+            var agentResponse = createAgentsMessage();
 
             var headerParams = new Dictionary<string, string>
             {
@@ -168,8 +168,8 @@ namespace CloselinkAPI.Test.Api
         [Test]
         public void CreateAgentBulkFailTest()
         {
-            var agentRequests = createAgentsRequest();
-            var agentResponse = createAgentsResponse();
+            var agentRequests = createAgentsMessage();
+            var agentResponse = createAgentsMessage();
 
             var headerParams = new Dictionary<string, string>
             {
@@ -193,7 +193,7 @@ namespace CloselinkAPI.Test.Api
         public void FindAgentByExternalIdTest()
         {
             var externalId = "externalId1";
-            var agentResponse = createAgentResponse();
+            var agentResponse = createAgentMessage();
 
             var pathParams = new Dictionary<string, string>
             {
@@ -225,7 +225,7 @@ namespace CloselinkAPI.Test.Api
         public async Task FindAgentByExternalIdAsyncTest()
         {
             var externalId = "externalId1";
-            var agentResponse = createAgentResponse();
+            var agentResponse = createAgentMessage();
 
 
             var pathParams = new Dictionary<string, string>
@@ -259,7 +259,7 @@ namespace CloselinkAPI.Test.Api
         public void FindAgentByExternalIdFailTest()
         {
             var externalId = "externalId1";
-            var agentResponse = createAgentResponse();
+            var agentResponse = createAgentMessage();
 
             var pathParams = new Dictionary<string, string>
             {
@@ -288,7 +288,7 @@ namespace CloselinkAPI.Test.Api
         public void FindAgentByIdTest()
         {
             var id = "id";
-            var agentResponse = createAgentResponse();
+            var agentResponse = createAgentMessage();
 
             var pathParams = new Dictionary<string, string>
             {
@@ -320,7 +320,7 @@ namespace CloselinkAPI.Test.Api
         public async Task FindAgentByIdAsyncTest()
         {
             var id = "id";
-            var agentResponse = createAgentResponse();
+            var agentResponse = createAgentMessage();
 
             var pathParams = new Dictionary<string, string>
             {
@@ -352,7 +352,7 @@ namespace CloselinkAPI.Test.Api
         public void FindAgentByIdFailTest()
         {
             var id = "id";
-            var agentResponse = createAgentResponse();
+            var agentResponse = createAgentMessage();
 
             var pathParams = new Dictionary<string, string>
             {
@@ -380,7 +380,7 @@ namespace CloselinkAPI.Test.Api
         [Test]
         public void FindAgentsTest()
         {
-            var agentsResponse = createAgentsResponse();
+            var agentsResponse = createAgentsMessage();
 
             var headerParams = new Dictionary<string, string>
             {
@@ -406,7 +406,7 @@ namespace CloselinkAPI.Test.Api
         [Test]
         public async Task FindAgentsAsyncTest()
         {
-            var agentsResponse = createAgentsResponse();
+            var agentsResponse = createAgentsMessage();
 
             var headerParams = new Dictionary<string, string>
             {
@@ -432,7 +432,7 @@ namespace CloselinkAPI.Test.Api
         [Test]
         public void FindAgentsFailTest()
         {
-            var agentsResponse = createAgentsResponse();
+            var agentsResponse = createAgentsMessage();
 
             var headerParams = new Dictionary<string, string>
             {
@@ -457,7 +457,7 @@ namespace CloselinkAPI.Test.Api
         {
             var id = "id1";
             var agentRequest = createAgentMessage();
-            var agentResponse = createAgentResponse();
+            var agentResponse = createAgentMessage();
 
             var pathParams = new Dictionary<string, string>
             {
@@ -491,7 +491,7 @@ namespace CloselinkAPI.Test.Api
         {
             var id = "id1";
             var agentRequest = createAgentMessage();
-            var agentResponse = createAgentResponse();
+            var agentResponse = createAgentMessage();
 
             var pathParams = new Dictionary<string, string>
             {
@@ -525,7 +525,7 @@ namespace CloselinkAPI.Test.Api
         {
             var id = "id1";
             var agentRequest = createAgentMessage();
-            var agentResponse = createAgentResponse();
+            var agentResponse = createAgentMessage();
 
             var pathParams = new Dictionary<string, string>
             {
@@ -554,8 +554,8 @@ namespace CloselinkAPI.Test.Api
         [Test]
         public void UpdateAgentBulkTest()
         {
-            var agentRequests = createAgentsRequest();
-            var agentResponse = createAgentsResponse();
+            var agentRequests = createAgentsMessage();
+            var agentResponse = createAgentsMessage();
 
             var headerParams = new Dictionary<string, string>
             {
@@ -582,8 +582,8 @@ namespace CloselinkAPI.Test.Api
         [Test]
         public async Task UpdateAgentBulkAsyncTest()
         {
-            var agentRequests = createAgentsRequest();
-            var agentResponse = createAgentsResponse();
+            var agentRequests = createAgentsMessage();
+            var agentResponse = createAgentsMessage();
 
             var headerParams = new Dictionary<string, string>
             {
@@ -610,8 +610,8 @@ namespace CloselinkAPI.Test.Api
         [Test]
         public void UpdateAgentBulkFailTest()
         {
-            var agentRequests = createAgentsRequest();
-            var agentResponse = createAgentsResponse();
+            var agentRequests = createAgentsMessage();
+            var agentResponse = createAgentsMessage();
 
             var headerParams = new Dictionary<string, string>
             {
@@ -636,7 +636,7 @@ namespace CloselinkAPI.Test.Api
         {
             var externalId = "externalId1";
             var agentRequest = createAgentMessage();
-            var agentResponse = createAgentResponse();
+            var agentResponse = createAgentMessage();
 
             var pathParams = new Dictionary<string, string>
             {
@@ -670,7 +670,7 @@ namespace CloselinkAPI.Test.Api
         {
             var externalId = "externalId1";
             var agentRequest = createAgentMessage();
-            var agentResponse = createAgentResponse();
+            var agentResponse = createAgentMessage();
 
             var pathParams = new Dictionary<string, string>
             {
@@ -704,7 +704,7 @@ namespace CloselinkAPI.Test.Api
         {
             var externalId = "externalId1";
             var agentRequest = createAgentMessage();
-            var agentResponse = createAgentResponse();
+            var agentResponse = createAgentMessage();
 
             var pathParams = new Dictionary<string, string>
             {
@@ -752,75 +752,7 @@ namespace CloselinkAPI.Test.Api
                 );
         }
 
-        private AgentsMessage createAgentsRequest()
-        {
-            return new AgentsMessage(
-                new List<AgentMessage>{
-                new AgentMessage(
-                    "Agent 1",
-                    new AddressMessage(
-                        "Street",
-                        "1",
-                        "12344",
-                        "Hamburg",
-                        "Germany"
-                    ),
-                    new ContactMessage(
-                        "Joe Doe",
-                        "+49 5454 45 45 4",
-                        "joe@doe.com",
-                        "+49 45 5454 554 5"
-                    ),
-                    new List<string> { "loCode1", "loCode2" },
-                    "Note 1",
-                    "customerId1"
-                ),
-                new AgentMessage(
-                    "Agent 2",
-                    new AddressMessage(
-                        "Street",
-                        "2",
-                        "25654",
-                        "Hamburg",
-                        "Germany"
-                    ),
-                    new ContactMessage(
-                        "Joe Doe",
-                        "+49 5454 45 45 4",
-                        "joe@doe.com",
-                        "+49 45 5454 554 5"
-                    ),
-                    new List<string> { "loCode1", "loCode2" },
-                    "Note 2",
-                    "customerId2"
-                )
-                });
-        }
-
-
-        private AgentMessage createAgentResponse()
-        {
-            return new AgentMessage(
-                "Agent 1",
-                    new AddressMessage(
-                        "Street",
-                        "1",
-                        "12344",
-                        "Hamburg",
-                        "Germany"
-                    ),
-                    new ContactMessage(
-                        "Joe Doe",
-                        "+49 5454 45 45 4",
-                        "joe@doe.com",
-                        "+49 45 5454 554 5"
-                    ),
-                    new List<string> { "loCode1", "loCode2" },
-                    "Note 1",
-                    "customerId1"
-            );
-        }
-        private AgentsMessage createAgentsResponse()
+        private AgentsMessage createAgentsMessage()
         {
             return new AgentsMessage(
                 new List<AgentMessage>{
