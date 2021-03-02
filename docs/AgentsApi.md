@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 <a name="createagent"></a>
 # **CreateAgent**
-> AgentResponseMessage CreateAgent (AgentRequestMessage body)
+> AgentMessage CreateAgent (AgentMessage body)
 
 Create agent
 
@@ -37,7 +37,7 @@ namespace Example
             Configuration.Default.ApiKey = "YOUR_API_KEY";
 
             var apiInstance = new AgentsApi();
-            var body = new AgentRequestMessage(
+            var body = new AgentMessage(
                         "Agent 1",
                         new AddressMessage(
                             "Street",
@@ -52,7 +52,7 @@ namespace Example
                             "joe@doe.com",
                             "+49 45 5454 554 5"
                         ),
-                        new List<string> { "portId1", "portId2" },
+                        new List<string> { "loCode1", "loCode2" },
                         "Note 1",
                         "customerId1"
                     ); 
@@ -60,7 +60,7 @@ namespace Example
             try
             {
                 // Create agent
-                ApiResponse<AgentRequestMessage> response = apiInstance.CreateAgent(body);
+                ApiResponse<AgentMessage> response = apiInstance.CreateAgent(body);
                 Console.WriteLine("StatusCode: " + response.StatusCode);
                 Console.WriteLine(response.Data); 
             }
@@ -77,11 +77,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**AgentRequestMessage**](AgentRequestMessage.md)|  | 
+ **body** | [**AgentMessage**](AgentMessage.md)|  | 
 
 ### Return type
 
-[**AgentResponseMessage**](AgentResponseMessage.md)
+[**AgentMessage**](AgentMessage.md)
 
 ### Authorization
 
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 
 <a name="createagentbulk"></a>
 # **CreateAgentBulk**
-> AgentsResponseMessage CreateAgentBulk (AgentsRequestMessage body)
+> AgentsMessage CreateAgentBulk (AgentsMessage body)
 
 Create multiple agents
 
@@ -117,9 +117,9 @@ namespace Example
             Configuration.Default.ApiKey = "YOUR_API_KEY";
 
             var apiInstance = new AgentsApi();
-            var body = new AgentsRequestMessage(
-                new List<AgentRequestMessage>{
-                    new AgentRequestMessage(
+            var body = new AgentsMessage(
+                new List<AgentMessage>{
+                    new AgentMessage(
                         "Agent 1",
                         new AddressMessage(
                             "Street",
@@ -134,11 +134,11 @@ namespace Example
                             "joe@doe.com",
                             "+49 45 5454 554 5"
                         ),
-                        new List<string> { "portId1", "portId2" },
+                        new List<string> { "loCode1", "loCode2" },
                         "Note 1",
                         "customerId1"
                     ),
-                    new AgentRequestMessage(
+                    new AgentMessage(
                         "Agent 2",
                         new AddressMessage(
                             "Street",
@@ -153,7 +153,7 @@ namespace Example
                             "joe@doe.com",
                             "+49 45 5454 554 5"
                         ),
-                        new List<string> { "portId1", "portId2" },
+                        new List<string> { "loCode1", "loCode2" },
                         "Note 2",
                         "customerId2"
                     )
@@ -162,7 +162,7 @@ namespace Example
             try
             {
                 // Create multiple agents
-                ApiResponse<AgentsResponseMessage> response = apiInstance.CreateAgentBulk(body);
+                ApiResponse<AgentsMessage> response = apiInstance.CreateAgentBulk(body);
                 Console.WriteLine("StatusCode: " + response.StatusCode);
                 response.Data.Agents.ForEach(Console.WriteLine);
             }
@@ -179,11 +179,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**AgentsRequestMessage**](AgentsRequestMessage.md)|  | 
+ **body** | [**AgentsMessage**](AgentsMessage.md)|  | 
 
 ### Return type
 
-[**AgentsResponseMessage**](AgentsResponseMessage.md)
+[**AgentsMessage**](AgentsMessage.md)
 
 ### Authorization
 
@@ -198,7 +198,7 @@ Name | Type | Description  | Notes
 
 <a name="findagentbyexternalid"></a>
 # **FindAgentByExternalId**
-> AgentResponseMessage FindAgentByExternalId (string externalId)
+> AgentMessage FindAgentByExternalId (string externalId)
 
 Find agent by external ID
 
@@ -224,7 +224,7 @@ namespace Example
             try
             {
                 // Find agent by external ID
-                ApiResponse<AgentResponseMessage> response = apiInstance.FindAgentByExternalId(externalId);
+                ApiResponse<AgentMessage> response = apiInstance.FindAgentByExternalId(externalId);
                 Console.WriteLine(response.StatusCode);
                 Console.WriteLine(response.Data); 
             }
@@ -245,7 +245,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AgentResponseMessage**](AgentResponseMessage.md)
+[**AgentMessage**](AgentMessage.md)
 
 ### Authorization
 
@@ -260,7 +260,7 @@ Name | Type | Description  | Notes
 
 <a name="findagentbyid"></a>
 # **FindAgentById**
-> AgentResponseMessage FindAgentById (string id)
+> AgentMessage FindAgentById (string id)
 
 Find agent by ID
 
@@ -286,7 +286,7 @@ namespace Example
             try
             {
                 // Find agent by ID
-                ApiResponse<AgentResponseMessage> response = apiInstance.FindAgentById(id);
+                ApiResponse<AgentMessage> response = apiInstance.FindAgentById(id);
                 Console.WriteLine(response.StatusCode);
                 Console.WriteLine(response.Data); 
             }
@@ -307,7 +307,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AgentResponseMessage**](AgentResponseMessage.md)
+[**AgentMessage**](AgentMessage.md)
 
 ### Authorization
 
@@ -322,7 +322,7 @@ Name | Type | Description  | Notes
 
 <a name="findagents"></a>
 # **FindAgents**
-> AgentsResponseMessage FindAgents (List<string> customerIds, string searchQuery, List<string> portIds)
+> AgentsMessage FindAgents (List<string> customerIds, string searchQuery, List<string> loCodes)
 
 Find agents
 
@@ -347,7 +347,7 @@ namespace Example
             try
             {
                 // Find agents
-                ApiResponse<AgentsResponseMessage> response = apiInstance.FindAgents();
+                ApiResponse<AgentsMessage> response = apiInstance.FindAgents();
                 Console.WriteLine("StatusCode: " + response.StatusCode);
                 response.Data.Agents.ForEach(Console.WriteLine);
             }
@@ -366,11 +366,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **customerIds** | [**List&lt;string&gt;**](string.md)| List of customer IDs | [optional]
  **searchQuery** | **string**| Search query | [optional]
- **portIds** | [**List&lt;string&gt;**](string.md)| List of port IDs | [optional]
+ **loCodes** | [**List&lt;string&gt;**](string.md)| List of port IDs | [optional]
 
 ### Return type
 
-[**AgentsResponseMessage**](AgentsResponseMessage.md)
+[**AgentsMessage**](AgentsMessage.md)
 
 ### Authorization
 
@@ -385,7 +385,7 @@ Name | Type | Description  | Notes
 
 <a name="updateagent"></a>
 # **UpdateAgent**
-> AgentResponseMessage UpdateAgent (string id, AgentRequestMessage body)
+> AgentMessage UpdateAgent (string id, AgentMessage body)
 
 Update agent
 
@@ -407,7 +407,7 @@ namespace Example
 
             var apiInstance = new AgentsApi();
             var id = "id1";
-            var body = new AgentResponseMessage(
+            var body = new AgentMessage(
                 "Agent 1",
                 new AddressMessage(
                     "Street",
@@ -422,7 +422,7 @@ namespace Example
                     "joe@doe.com",
                     "+49 45 5454 554 5"
                 ),
-                new List<string> { "portId1", "portId2" },
+                new List<string> { "loCode1", "loCode2" },
                 "Note 1",
                 "customerId1"
             );
@@ -430,7 +430,7 @@ namespace Example
             try
             {
                 // Update agent
-                ApiResponse<AgentResponseMessage> response = apiInstance.UpdateAgent(id, body);
+                ApiResponse<AgentMessage> response = apiInstance.UpdateAgent(id, body);
                 Console.WriteLine(response.StatusCode);
                 Console.WriteLine(response.Data); 
             }
@@ -448,11 +448,11 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| Agent ID | 
- **body** | [**AgentRequestMessage**](AgentRequestMessage.md)|  | 
+ **body** | [**AgentMessage**](AgentMessage.md)|  | 
 
 ### Return type
 
-[**AgentResponseMessage**](AgentResponseMessage.md)
+[**AgentMessage**](AgentMessage.md)
 
 ### Authorization
 
@@ -467,7 +467,7 @@ Name | Type | Description  | Notes
 
 <a name="updateagentbulk"></a>
 # **UpdateAgentBulk**
-> AgentsResponseMessage UpdateAgentBulk (AgentsRequestMessage body)
+> AgentsMessage UpdateAgentBulk (AgentsMessage body)
 
 Update multiple agents
 
@@ -488,9 +488,9 @@ namespace Example
             Configuration.Default.ApiKey = "YOUR_API_KEY";
 
             var apiInstance = new AgentsApi();
-            var body = return new AgentsRequestMessage(
-                new List<AgentRequestMessage>{
-                    new AgentRequestMessage(
+            var body = return new AgentsMessage(
+                new List<AgentMessage>{
+                    new AgentMessage(
                         "Agent 1",
                         new AddressMessage(
                             "Street",
@@ -505,12 +505,12 @@ namespace Example
                             "joe@doe.com",
                             "+49 45 5454 554 5"
                         ),
-                        new List<string> { "portId1", "portId2" },
+                        new List<string> { "loCode1", "loCode2" },
                         "Note 1",
                         "customerId1",
                         "externalId1"
                     ),
-                    new AgentRequestMessage(
+                    new AgentMessage(
                         "Agent 2",
                         new AddressMessage(
                             "Street",
@@ -525,7 +525,7 @@ namespace Example
                             "joe@doe.com",
                             "+49 45 5454 554 5"
                         ),
-                        new List<string> { "portId1", "portId2" },
+                        new List<string> { "loCode1", "loCode2" },
                         "Note 2",
                         "customerId2",
                         "externalId1"
@@ -535,7 +535,7 @@ namespace Example
             try
             {
                 // Update multiple agents
-                ApiResponse<AgentsResponseMessage> response = apiInstance.UpdateAgentBulk(body);
+                ApiResponse<AgentsMessage> response = apiInstance.UpdateAgentBulk(body);
                 Console.WriteLine("StatusCode: " + response.StatusCode);
                 response.Data.Agents.ForEach(Console.WriteLine);
             }
@@ -552,11 +552,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**AgentsRequestMessage**](AgentsRequestMessage.md)|  | 
+ **body** | [**AgentsMessage**](AgentsMessage.md)|  | 
 
 ### Return type
 
-[**AgentsResponseMessage**](AgentsResponseMessage.md)
+[**AgentsMessage**](AgentsMessage.md)
 
 ### Authorization
 
@@ -571,7 +571,7 @@ Name | Type | Description  | Notes
 
 <a name="updateagentbyexternalid"></a>
 # **UpdateAgentByExternalId**
-> AgentResponseMessage UpdateAgentByExternalId (string externalId, AgentRequestMessage body)
+> AgentMessage UpdateAgentByExternalId (string externalId, AgentMessage body)
 
 Update agent by external ID
 
@@ -593,7 +593,7 @@ namespace Example
 
             var apiInstance = new AgentsApi();
             var externalId = "externalId1";
-            var body = new AgentRequestMessage(
+            var body = new AgentMessage(
                     "Agent 1",
                     new AddressMessage(
                         "Street",
@@ -608,7 +608,7 @@ namespace Example
                         "joe@doe.com",
                         "+49 45 5454 554 5"
                     ),
-                    new List<string> { "portId1", "portId2" },
+                    new List<string> { "loCode1", "loCode2" },
                     "Note 1",
                     "customerId1"
                 );
@@ -616,7 +616,7 @@ namespace Example
             try
             {
                 // Update agent by external ID
-                ApiResponse<AgentResponseMessage> response = apiInstance.UpdateAgentByExternalId(externalId, body);
+                ApiResponse<AgentMessage> response = apiInstance.UpdateAgentByExternalId(externalId, body);
                 Console.WriteLine(response.StatusCode);
                 Console.WriteLine(response.Data); 
             }
@@ -634,11 +634,11 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **externalId** | **string**|  | 
- **body** | [**AgentRequestMessage**](AgentRequestMessage.md)|  | 
+ **body** | [**AgentMessage**](AgentMessage.md)|  | 
 
 ### Return type
 
-[**AgentResponseMessage**](AgentResponseMessage.md)
+[**AgentMessage**](AgentMessage.md)
 
 ### Authorization
 

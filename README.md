@@ -87,10 +87,8 @@ namespace Example
 
  - [Schedule](docs/Schedule.md)
  - [Stock](docs/Stock.md)
- - [AgentRequestMessage](docs/AgentRequestMessage.md)
- - [AgentsRequestMessage](docs/AgentsRequestMessage.md)
- - [AgentResponseMessage](docs/AgentResponseMessage.md)
- - [AgentsResponseMessage](docs/AgentsResponseMessage.md)
+ - [AgentMessage](docs/AgentMessage.md)
+ - [AgentsMessage](docs/AgentsMessage.md)
  - [AddressMessage](docs/AddressMessage.md)
  - [ContactMessage](docs/ContactMessage.md)
 

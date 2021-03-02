@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
 using CloselinkAPI.Client;
@@ -55,9 +54,9 @@ namespace CloselinkAPI.Api
         /// Create agent 
         /// </summary>
         /// <exception cref="CloselinkAPI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">AgentRequestMessage</param>
-        /// <returns>AgentResponseMessage</returns>
-        public ApiResponse<AgentResponseMessage> CreateAgent(AgentRequestMessage body)
+        /// <param name="body">AgentMessage</param>
+        /// <returns>AgentMessage</returns>
+        public ApiResponse<AgentMessage> CreateAgent(AgentMessage body)
         {
             const string localVarPath = "/v1/agents";
             var localVarPathParams = new Dictionary<string, string>();
@@ -87,18 +86,18 @@ namespace CloselinkAPI.Api
             var exception = ExceptionFactory?.Invoke("CreateAgent", localVarResponse);
             if (exception != null) throw exception;
 
-            return new ApiResponse<AgentResponseMessage>(localVarStatusCode,
+            return new ApiResponse<AgentMessage>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (AgentResponseMessage)Configuration.ApiClient.Deserialize(localVarResponse, typeof(AgentResponseMessage)));
+                (AgentMessage)Configuration.ApiClient.Deserialize(localVarResponse, typeof(AgentMessage)));
         }
 
         /// <summary>
         /// Create agent 
         /// </summary>
         /// <exception cref="CloselinkAPI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">AgentRequestMessage</param>
-        /// <returns>Task of ApiResponse (AgentResponseMessage)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AgentResponseMessage>> CreateAgentAsync(AgentRequestMessage body)
+        /// <param name="body">AgentMessage</param>
+        /// <returns>Task of ApiResponse (AgentMessage)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AgentMessage>> CreateAgentAsync(AgentMessage body)
         {
             const string localVarPath = "/v1/agents";
             var localVarPathParams = new Dictionary<string, string>();
@@ -129,18 +128,18 @@ namespace CloselinkAPI.Api
             var exception = ExceptionFactory?.Invoke("CreateAgent", localVarResponse);
             if (exception != null) throw exception;
 
-            return new ApiResponse<AgentResponseMessage>(localVarStatusCode,
+            return new ApiResponse<AgentMessage>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (AgentResponseMessage)Configuration.ApiClient.Deserialize(localVarResponse, typeof(AgentResponseMessage)));
+                (AgentMessage)Configuration.ApiClient.Deserialize(localVarResponse, typeof(AgentMessage)));
         }
 
         /// <summary>
         /// Create multiple agents 
         /// </summary>
         /// <exception cref="CloselinkAPI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">AgentsRequestMessage</param>
-        /// <returns>ApiResponse of AgentsResponseMessage</returns>
-        public ApiResponse<AgentsResponseMessage> CreateAgentBulk(AgentsRequestMessage body)
+        /// <param name="body">AgentsMessage</param>
+        /// <returns>ApiResponse of AgentsMessage</returns>
+        public ApiResponse<AgentsMessage> CreateAgentBulk(AgentsMessage body)
         {
             const string localVarPath = "/v1/agents/bulk";
             var localVarPathParams = new Dictionary<string, string>();
@@ -170,18 +169,18 @@ namespace CloselinkAPI.Api
             var exception = ExceptionFactory?.Invoke("CreateAgentBulk", localVarResponse);
             if (exception != null) throw exception;
 
-            return new ApiResponse<AgentsResponseMessage>(localVarStatusCode,
+            return new ApiResponse<AgentsMessage>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (AgentsResponseMessage)Configuration.ApiClient.Deserialize(localVarResponse, typeof(AgentsResponseMessage)));
+                (AgentsMessage)Configuration.ApiClient.Deserialize(localVarResponse, typeof(AgentsMessage)));
         }
 
         /// <summary>
         /// Create multiple agents 
         /// </summary>
         /// <exception cref="CloselinkAPI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">AgentsRequestMessage</param>
-        /// <returns>Task of ApiResponse (AgentsResponseMessage)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AgentsResponseMessage>> CreateAgentBulkAsync(AgentsRequestMessage body)
+        /// <param name="body">AgentsMessage</param>
+        /// <returns>Task of ApiResponse (AgentsMessage)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AgentsMessage>> CreateAgentBulkAsync(AgentsMessage body)
         {
             const string localVarPath = "/v1/agents/bulk";
             var localVarPathParams = new Dictionary<string, string>();
@@ -211,9 +210,9 @@ namespace CloselinkAPI.Api
             var exception = ExceptionFactory?.Invoke("CreateAgentBulk", localVarResponse);
             if (exception != null) throw exception;
 
-            return new ApiResponse<AgentsResponseMessage>(localVarStatusCode,
+            return new ApiResponse<AgentsMessage>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (AgentsResponseMessage)Configuration.ApiClient.Deserialize(localVarResponse, typeof(AgentsResponseMessage)));
+                (AgentsMessage)Configuration.ApiClient.Deserialize(localVarResponse, typeof(AgentsMessage)));
         }
 
         /// <summary>
@@ -221,8 +220,8 @@ namespace CloselinkAPI.Api
         /// </summary>
         /// <exception cref="CloselinkAPI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="externalId">External ID</param>
-        /// <returns>ApiResponse of AgentResponseMessage</returns>
-        public ApiResponse<AgentResponseMessage> FindAgentByExternalId(string externalId)
+        /// <returns>ApiResponse of AgentMessage</returns>
+        public ApiResponse<AgentMessage> FindAgentByExternalId(string externalId)
         {
             // verify the required parameter 'externalId' is set
             if (externalId == null)
@@ -257,9 +256,9 @@ namespace CloselinkAPI.Api
             var exception = ExceptionFactory?.Invoke("FindAgentByExternalId", localVarResponse);
             if (exception != null) throw exception;
 
-            return new ApiResponse<AgentResponseMessage>(localVarStatusCode,
+            return new ApiResponse<AgentMessage>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (AgentResponseMessage)Configuration.ApiClient.Deserialize(localVarResponse, typeof(AgentResponseMessage)));
+                (AgentMessage)Configuration.ApiClient.Deserialize(localVarResponse, typeof(AgentMessage)));
         }
 
         /// <summary>
@@ -267,8 +266,8 @@ namespace CloselinkAPI.Api
         /// </summary>
         /// <exception cref="CloselinkAPI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="externalId">External ID</param>
-        /// <returns>Task of ApiResponse (AgentResponseMessage)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AgentResponseMessage>> FindAgentByExternalIdAsync(string externalId)
+        /// <returns>Task of ApiResponse (AgentMessage)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AgentMessage>> FindAgentByExternalIdAsync(string externalId)
         {
             // verify the required parameter 'externalId' is set
             if (externalId == null)
@@ -303,9 +302,9 @@ namespace CloselinkAPI.Api
             var exception = ExceptionFactory?.Invoke("FindAgentByExternalId", localVarResponse);
             if (exception != null) throw exception;
 
-            return new ApiResponse<AgentResponseMessage>(localVarStatusCode,
+            return new ApiResponse<AgentMessage>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (AgentResponseMessage)Configuration.ApiClient.Deserialize(localVarResponse, typeof(AgentResponseMessage)));
+                (AgentMessage)Configuration.ApiClient.Deserialize(localVarResponse, typeof(AgentMessage)));
         }
 
         /// <summary>
@@ -313,8 +312,8 @@ namespace CloselinkAPI.Api
         /// </summary>
         /// <exception cref="CloselinkAPI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Agent ID</param>
-        /// <returns>ApiResponse of AgentResponseMessage</returns>
-        public ApiResponse<AgentResponseMessage> FindAgentById(string id)
+        /// <returns>ApiResponse of AgentMessage</returns>
+        public ApiResponse<AgentMessage> FindAgentById(string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -349,9 +348,9 @@ namespace CloselinkAPI.Api
             var exception = ExceptionFactory?.Invoke("FindAgentById", localVarResponse);
             if (exception != null) throw exception;
 
-            return new ApiResponse<AgentResponseMessage>(localVarStatusCode,
+            return new ApiResponse<AgentMessage>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (AgentResponseMessage)Configuration.ApiClient.Deserialize(localVarResponse, typeof(AgentResponseMessage)));
+                (AgentMessage)Configuration.ApiClient.Deserialize(localVarResponse, typeof(AgentMessage)));
         }
 
         /// <summary>
@@ -359,8 +358,8 @@ namespace CloselinkAPI.Api
         /// </summary>
         /// <exception cref="CloselinkAPI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Agent ID</param>
-        /// <returns>Task of ApiResponse (AgentResponseMessage)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AgentResponseMessage>> FindAgentByIdAsync(string id)
+        /// <returns>Task of ApiResponse (AgentMessage)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AgentMessage>> FindAgentByIdAsync(string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -395,77 +394,25 @@ namespace CloselinkAPI.Api
             var exception = ExceptionFactory?.Invoke("FindAgentById", localVarResponse);
             if (exception != null) throw exception;
 
-            return new ApiResponse<AgentResponseMessage>(localVarStatusCode,
+            return new ApiResponse<AgentMessage>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (AgentResponseMessage)Configuration.ApiClient.Deserialize(localVarResponse, typeof(AgentResponseMessage)));
+                (AgentMessage)Configuration.ApiClient.Deserialize(localVarResponse, typeof(AgentMessage)));
         }
 
         /// <summary>
         /// Find agents 
         /// </summary>
         /// <exception cref="CloselinkAPI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ids">List of agent IDs (optional)</param>
         /// <param name="customerIds">List of customer IDs (optional)</param>
         /// <param name="searchQuery">Search query (optional)</param>
-        /// <param name="portIds">List of port IDs (optional)</param>
-        /// <returns>ApiResponse of AgentsResponseMessage</returns>
-        public ApiResponse<AgentsResponseMessage> FindAgents(
-                List<string> customerIds = null,
-                string searchQuery = null,
-                List<string> portIds = null
-            )
-        {
-            const string localVarPath = "/v1/agents";
-            var localVarPathParams = new Dictionary<string, string>();
-            var localVarQueryParams = new List<KeyValuePair<string, string>>();
-            var localVarHeaderParams = new Dictionary<string, string> { { "Accept", "application/json" } };
-
-
-            if (customerIds != null)
-                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "customerIds", customerIds)); // query parameter
-            if (searchQuery != null)
-                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "searchQuery", searchQuery)); // query parameter
-            if (portIds != null)
-                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "portIds", portIds)); // query parameter
-
-            // authentication (apikey) required
-            if (!String.IsNullOrEmpty(Configuration.ApiKey))
-            {
-                localVarHeaderParams["apikey"] = Configuration.ApiKey;
-            }
-
-            // make the HTTP request
-            var localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(
-                localVarPath,
-                Method.GET,
-                localVarQueryParams,
-                null,
-                localVarHeaderParams,
-                localVarPathParams,
-                "application/json"
-            );
-
-            var localVarStatusCode = (int)localVarResponse.StatusCode;
-
-            var exception = ExceptionFactory?.Invoke("FindAgents", localVarResponse);
-            if (exception != null) throw exception;
-
-            return new ApiResponse<AgentsResponseMessage>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (AgentsResponseMessage)Configuration.ApiClient.Deserialize(localVarResponse, typeof(AgentsResponseMessage)));
-        }
-
-        /// <summary>
-        /// Find agents 
-        /// </summary>
-        /// <exception cref="CloselinkAPI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customerIds">List of customer IDs (optional)</param>
-        /// <param name="searchQuery">Search query (optional)</param>
-        /// <param name="portIds">List of port IDs (optional)</param>
-        /// <returns>Task of ApiResponse (AgentsResponseMessage)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AgentsResponseMessage>> FindAgentsAsync(
+        /// <param name="externalIds">List of external IDs (optional)</param>
+        /// <returns>ApiResponse of AgentsMessage</returns>
+        public ApiResponse<AgentsMessage> FindAgents(
+                List<string> ids = null, 
                 List<string> customerIds = null, 
                 string searchQuery = null, 
-                List<string> portIds = null
+                List<string> externalIds = null
             )
         {
             const string localVarPath = "/v1/agents";
@@ -474,12 +421,64 @@ namespace CloselinkAPI.Api
             var localVarHeaderParams = new Dictionary<string, string> { { "Accept", "application/json" } };
 
 
-            if (customerIds != null)
-                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "customerIds", customerIds)); // query parameter
-            if (searchQuery != null)
-                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "searchQuery", searchQuery)); // query parameter
-            if (portIds != null)
-                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "portIds", portIds)); // query parameter
+            if (ids != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "ids", ids)); // query parameter
+            if (customerIds != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "customerIds", customerIds)); // query parameter
+            if (searchQuery != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "searchQuery", searchQuery)); // query parameter
+            if (externalIds != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "externalIds", externalIds)); // query parameter
+
+            // authentication (apikey) required
+            if (!String.IsNullOrEmpty(Configuration.ApiKey))
+            {
+                localVarHeaderParams["apikey"] = Configuration.ApiKey;
+            }
+
+            // make the HTTP request
+            var localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(
+                localVarPath,
+                Method.GET,
+                localVarQueryParams,
+                null,
+                localVarHeaderParams,
+                localVarPathParams,
+                "application/json"
+            );
+
+            var localVarStatusCode = (int)localVarResponse.StatusCode;
+
+            var exception = ExceptionFactory?.Invoke("FindAgents", localVarResponse);
+            if (exception != null) throw exception;
+
+            return new ApiResponse<AgentsMessage>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (AgentsMessage)Configuration.ApiClient.Deserialize(localVarResponse, typeof(AgentsMessage)));
+        }
+
+        /// <summary>
+        /// Find agents 
+        /// </summary>
+        /// <exception cref="CloselinkAPI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ids">List of agent IDs (optional)</param>
+        /// <param name="customerIds">List of customer IDs (optional)</param>
+        /// <param name="searchQuery">Search query (optional)</param>
+        /// <param name="externalIds">List of external IDs (optional)</param>
+        /// <returns>Task of ApiResponse (AgentsMessage)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AgentsMessage>> FindAgentsAsync(
+                List<string> ids = null, 
+                List<string> customerIds = null, 
+                string searchQuery = null, 
+                List<string> externalIds = null
+            )
+        {
+            const string localVarPath = "/v1/agents";
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new List<KeyValuePair<string, string>>();
+            var localVarHeaderParams = new Dictionary<string, string> { { "Accept", "application/json" } };
+
+
+            if (ids != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "ids", ids)); // query parameter
+            if (customerIds != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "customerIds", customerIds)); // query parameter
+            if (searchQuery != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "searchQuery", searchQuery)); // query parameter
+            if (externalIds != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "externalIds", externalIds)); // query parameter
 
             // authentication (apikey) required
             if (!String.IsNullOrEmpty(Configuration.ApiKey))
@@ -503,9 +502,9 @@ namespace CloselinkAPI.Api
             var exception = ExceptionFactory?.Invoke("FindAgents", localVarResponse);
             if (exception != null) throw exception;
 
-            return new ApiResponse<AgentsResponseMessage>(localVarStatusCode,
+            return new ApiResponse<AgentsMessage>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (AgentsResponseMessage)Configuration.ApiClient.Deserialize(localVarResponse, typeof(AgentsResponseMessage)));
+                (AgentsMessage)Configuration.ApiClient.Deserialize(localVarResponse, typeof(AgentsMessage)));
         }
 
         /// <summary>
@@ -513,9 +512,9 @@ namespace CloselinkAPI.Api
         /// </summary>
         /// <exception cref="CloselinkAPI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Agent ID</param>
-        /// <param name="body">AgentRequestMessage</param>
-        /// <returns>ApiResponse of AgentResponseMessage</returns>
-        public ApiResponse<AgentResponseMessage> UpdateAgent(string id, AgentRequestMessage body)
+        /// <param name="body">AgentMessage</param>
+        /// <returns>ApiResponse of AgentMessage</returns>
+        public ApiResponse<AgentMessage> UpdateAgent(string id, AgentMessage body)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -550,9 +549,9 @@ namespace CloselinkAPI.Api
             var exception = ExceptionFactory?.Invoke("UpdateAgent", localVarResponse);
             if (exception != null) throw exception;
 
-            return new ApiResponse<AgentResponseMessage>(localVarStatusCode,
+            return new ApiResponse<AgentMessage>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (AgentResponseMessage) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AgentResponseMessage)));
+                (AgentMessage) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AgentMessage)));
         }
 
         /// <summary>
@@ -560,9 +559,9 @@ namespace CloselinkAPI.Api
         /// </summary>
         /// <exception cref="CloselinkAPI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Agent ID</param>
-        /// <param name="body">AgentRequestMessage</param>
-        /// <returns>Task of ApiResponse (AgentResponseMessage)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AgentResponseMessage>> UpdateAgentAsync(string id, AgentRequestMessage body)
+        /// <param name="body">AgentMessage</param>
+        /// <returns>Task of ApiResponse (AgentMessage)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AgentMessage>> UpdateAgentAsync(string id, AgentMessage body)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -597,18 +596,18 @@ namespace CloselinkAPI.Api
             var exception = ExceptionFactory?.Invoke("UpdateAgent", localVarResponse);
             if (exception != null) throw exception;
 
-            return new ApiResponse<AgentResponseMessage>(localVarStatusCode,
+            return new ApiResponse<AgentMessage>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (AgentResponseMessage) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AgentResponseMessage)));
+                (AgentMessage) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AgentMessage)));
         }
 
         /// <summary>
         /// Update multiple agents 
         /// </summary>
         /// <exception cref="CloselinkAPI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">AgentsRequestMessage</param>
-        /// <returns>ApiResponse of AgentsResponseMessage</returns>
-        public ApiResponse<AgentsResponseMessage> UpdateAgentBulk(AgentsRequestMessage body)
+        /// <param name="body">AgentsMessage</param>
+        /// <returns>ApiResponse of AgentsMessage</returns>
+        public ApiResponse<AgentsMessage> UpdateAgentBulk(AgentsMessage body)
         {
             const string localVarPath = "/v1/agents/bulk";
             var localVarPathParams = new Dictionary<string, string>();
@@ -638,18 +637,18 @@ namespace CloselinkAPI.Api
             var exception = ExceptionFactory?.Invoke("UpdateAgentBulk", localVarResponse);
             if (exception != null) throw exception;
 
-            return new ApiResponse<AgentsResponseMessage>(localVarStatusCode,
+            return new ApiResponse<AgentsMessage>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (AgentsResponseMessage) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AgentsResponseMessage)));
+                (AgentsMessage) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AgentsMessage)));
         }
 
         /// <summary>
         /// Update multiple agents 
         /// </summary>
         /// <exception cref="CloselinkAPI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">AgentsRequestMessage</param>
-        /// <returns>Task of ApiResponse (AgentsResponseMessage)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AgentsResponseMessage>> UpdateAgentBulkAsync(AgentsRequestMessage body)
+        /// <param name="body">AgentsMessage</param>
+        /// <returns>Task of ApiResponse (AgentsMessage)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AgentsMessage>> UpdateAgentBulkAsync(AgentsMessage body)
         {
             const string localVarPath = "/v1/agents/bulk";
             var localVarPathParams = new Dictionary<string, string>();
@@ -679,9 +678,9 @@ namespace CloselinkAPI.Api
             var exception = ExceptionFactory?.Invoke("UpdateAgentBulk", localVarResponse);
             if (exception != null) throw exception;
 
-            return new ApiResponse<AgentsResponseMessage>(localVarStatusCode,
+            return new ApiResponse<AgentsMessage>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (AgentsResponseMessage) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AgentsResponseMessage)));
+                (AgentsMessage) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AgentsMessage)));
         }
 
         /// <summary>
@@ -689,9 +688,9 @@ namespace CloselinkAPI.Api
         /// </summary>
         /// <exception cref="CloselinkAPI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="externalId">External ID</param>
-        /// <param name="body">AgentRequestMessage</param>
-        /// <returns>ApiResponse of AgentResponseMessage</returns>
-        public ApiResponse<AgentResponseMessage> UpdateAgentByExternalId(string externalId, AgentRequestMessage body)
+        /// <param name="body">AgentMessage</param>
+        /// <returns>ApiResponse of AgentMessage</returns>
+        public ApiResponse<AgentMessage> UpdateAgentByExternalId(string externalId, AgentMessage body)
         {
             // verify the required parameter 'externalId' is set
             if (externalId == null)
@@ -726,9 +725,9 @@ namespace CloselinkAPI.Api
             var exception = ExceptionFactory?.Invoke("UpdateAgentByExternalId", localVarResponse);
             if (exception != null) throw exception;
 
-            return new ApiResponse<AgentResponseMessage>(localVarStatusCode,
+            return new ApiResponse<AgentMessage>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (AgentResponseMessage) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AgentResponseMessage)));
+                (AgentMessage) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AgentMessage)));
         }
 
         /// <summary>
@@ -736,9 +735,9 @@ namespace CloselinkAPI.Api
         /// </summary>
         /// <exception cref="CloselinkAPI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="externalId">External ID</param>
-        /// <param name="body">AgentRequestMessage</param>
-        /// <returns>Task of ApiResponse (AgentResponseMessage)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AgentResponseMessage>> UpdateAgentByExternalIdAsync(string externalId, AgentRequestMessage body)
+        /// <param name="body">AgentMessage</param>
+        /// <returns>Task of ApiResponse (AgentMessage)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AgentMessage>> UpdateAgentByExternalIdAsync(string externalId, AgentMessage body)
         {
             // verify the required parameter 'externalId' is set
             if (externalId == null)
@@ -773,9 +772,9 @@ namespace CloselinkAPI.Api
             var exception = ExceptionFactory?.Invoke("UpdateAgentByExternalId", localVarResponse);
             if (exception != null) throw exception;
 
-            return new ApiResponse<AgentResponseMessage>(localVarStatusCode,
+            return new ApiResponse<AgentMessage>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (AgentResponseMessage) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AgentResponseMessage)));
+                (AgentMessage) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AgentMessage)));
         }
 
     }
