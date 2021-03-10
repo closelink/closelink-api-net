@@ -10,25 +10,18 @@ using System.Linq;
 namespace CloselinkAPI.Model
 {
     /// <summary>
-    /// List response model AgentResponseMessage
+    /// List request model of AgentMessage
     /// </summary>
     [DataContract]
-    public partial class AgentsResponseMessage :  IEquatable<AgentsResponseMessage>, IValidatableObject
+    public partial class AgentsMessage :  IEquatable<AgentsMessage>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="AgentsResponseMessage" /> class.
-        /// </summary>
-        public AgentsResponseMessage()
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="AgentsResponseMessage" /> class.
+        /// Initializes a new instance of the <see cref="AgentsMessage" /> class.
         /// </summary>
         /// <param name="agents">List of agents (required).</param>
-        public AgentsResponseMessage(List<AgentResponseMessage> agents = default(List<AgentResponseMessage>))
+        public AgentsMessage(List<AgentMessage> agents = default(List<AgentMessage>))
         {
-            this.Agents = agents ?? throw new InvalidDataException("agents is a required property for AgentsResponseMessage and cannot be null");
+            this.Agents = agents ?? throw new InvalidDataException("agents is a required property for AgentsMessage and cannot be null");
         }
         
         /// <summary>
@@ -36,7 +29,7 @@ namespace CloselinkAPI.Model
         /// </summary>
         /// <value>List of agents</value>
         [DataMember(Name="agents", EmitDefaultValue=false)]
-        public List<AgentResponseMessage> Agents { get; set; }
+        public List<AgentMessage> Agents { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -45,7 +38,7 @@ namespace CloselinkAPI.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class AgentsResponseMessage {\n");
+            sb.Append("class AgentsMessage {\n");
             sb.Append("  Agents: ").Append(Agents).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -67,15 +60,15 @@ namespace CloselinkAPI.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as AgentsResponseMessage);
+            return this.Equals(input as AgentsMessage);
         }
 
         /// <summary>
-        /// Returns true if AgentsResponseMessage instances are equal
+        /// Returns true if AgentsMessage instances are equal
         /// </summary>
-        /// <param name="input">Instance of AgentsResponseMessage to be compared</param>
+        /// <param name="input">Instance of AgentsMessage to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(AgentsResponseMessage input)
+        public bool Equals(AgentsMessage input)
         {
             if (input == null)
                 return false;

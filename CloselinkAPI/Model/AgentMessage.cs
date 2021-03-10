@@ -9,75 +9,76 @@ using System.Linq;
 namespace CloselinkAPI.Model
 {
     /// <summary>
-    /// Agent response model
+    /// Agent request model
     /// </summary>
     [DataContract]
-    public partial class AgentResponseMessage :  IEquatable<AgentResponseMessage>, IValidatableObject
+    public partial class AgentMessage :  IEquatable<AgentMessage>, IValidatableObject
     {
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="AgentResponseMessage" /> class.
+        /// Initializes a new instance of the <see cref="AgentMessage" /> class.
         /// </summary>
-        public AgentResponseMessage()
+        public AgentMessage()
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AgentResponseMessage" /> class.
+        /// Initializes a new instance of the <see cref="AgentMessage" /> class.
         /// </summary>
         /// <param name="name">The name of the agency.</param>
         /// <param name="address">Information about the address of an agency.</param>
         /// <param name="contact">Information about the contact details of an agency.</param>
-        /// <param name="portIds">List of ports of an agency.</param>
+        /// <param name="loCodes">List of loCodes of an agency.</param>
         /// <param name="note">Additional notes for an agent.</param>
-        /// <param name="customerId">The customer ID of an agent (required).</param>
-        public AgentResponseMessage(string name = default(string), AddressMessage address = default(AddressMessage), ContactMessage contact = default(ContactMessage), List<string> portIds = default(List<string>), string note = default(string), string customerId = default(string))
+        /// <param name="customerId">The customer ID of an agent.</param>
+        public AgentMessage(string name = default(string), AddressMessage address = default(AddressMessage), ContactMessage contact = default(ContactMessage), List<string> loCodes = default(List<string>), string note = default(string), string customerId = default(string))
         {
             this.Name = name;
             this.Address = address;
             this.Contact = contact;
-            this.PortIds = portIds;
+            this.LoCodes = loCodes;
             this.Note = note;
             this.CustomerId = customerId;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AgentResponseMessage" /> class.
+        /// Initializes a new instance of the <see cref="AgentMessage" /> class.
         /// </summary>
         /// <param name="name">The name of the agency.</param>
         /// <param name="address">Information about the address of an agency.</param>
         /// <param name="contact">Information about the contact details of an agency.</param>
-        /// <param name="portIds">List of ports of an agency.</param>
+        /// <param name="loCodes">List of loCodes of an agency.</param>
         /// <param name="note">Additional notes for an agent.</param>
-        /// <param name="customerId">The customer ID of an agent (required).</param>
+        /// <param name="customerId">The customer ID of an agent.</param>
         /// <param name="externalId">The external ID of an agent.</param>
-        public AgentResponseMessage(string name = default(string), AddressMessage address = default(AddressMessage), ContactMessage contact = default(ContactMessage), List<string> portIds = default(List<string>), string note = default(string), string customerId = default(string), string externalId = default(string))
+        public AgentMessage(string name = default(string), AddressMessage address = default(AddressMessage), ContactMessage contact = default(ContactMessage), List<string> loCodes = default(List<string>), string note = default(string), string customerId = default(string), string externalId = default(string))
         {
             this.Name = name;
             this.Address = address;
             this.Contact = contact;
-            this.PortIds = portIds;
+            this.LoCodes = loCodes;
             this.Note = note;
             this.CustomerId = customerId;
             this.ExternalId = externalId;
         }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="AgentResponseMessage" /> class.
+         /// <summary>
+        /// Initializes a new instance of the <see cref="AgentMessage" /> class.
         /// </summary>
         /// <param name="name">The name of the agency.</param>
         /// <param name="address">Information about the address of an agency.</param>
         /// <param name="contact">Information about the contact details of an agency.</param>
-        /// <param name="portIds">List of ports of an agency.</param>
+        /// <param name="loCodes">List of loCodes of an agency.</param>
         /// <param name="note">Additional notes for an agent.</param>
-        /// <param name="customerId">The customer ID of an agent (required).</param>
+        /// <param name="customerId">The customer ID of an agent.</param>
         /// <param name="externalId">The external ID of an agent.</param>
         /// <param name="id">The ID of an agent.</param>
-        public AgentResponseMessage(string name = default(string), AddressMessage address = default(AddressMessage), ContactMessage contact = default(ContactMessage), List<string> portIds = default(List<string>), string note = default(string), string customerId = default(string), string externalId = default(string), string id = default(string))
+        public AgentMessage(string name = default(string), AddressMessage address = default(AddressMessage), ContactMessage contact = default(ContactMessage), List<string> loCodes = default(List<string>), string note = default(string), string customerId = default(string), string externalId = default(string), string id = default(string))
         {
             this.Name = name;
             this.Address = address;
             this.Contact = contact;
-            this.PortIds = portIds;
+            this.LoCodes = loCodes;
             this.Note = note;
             this.CustomerId = customerId;
             this.ExternalId = externalId;
@@ -92,13 +93,6 @@ namespace CloselinkAPI.Model
         public string Id { get; set; }
 
         /// <summary>
-        /// The customer ID of an agent
-        /// </summary>
-        /// <value>The customer ID of an agent</value>
-        [DataMember(Name="customerId", EmitDefaultValue=false)]
-        public string CustomerId { get; set; }
-
-        /// <summary>
         /// The name of the agency
         /// </summary>
         /// <value>The name of the agency</value>
@@ -111,6 +105,7 @@ namespace CloselinkAPI.Model
         /// <value>Information about the address of an agency</value>
         [DataMember(Name="address", EmitDefaultValue=false)]
         public AddressMessage Address { get; set; }
+
         /// <summary>
         /// Information about the contact details of an agency
         /// </summary>
@@ -119,11 +114,11 @@ namespace CloselinkAPI.Model
         public ContactMessage Contact { get; set; }
 
         /// <summary>
-        /// List of ports of an agency
+        /// List of loCodes for an agency
         /// </summary>
-        /// <value>List of ports of an agency</value>
-        [DataMember(Name="portIds", EmitDefaultValue=false)]
-        public List<string> PortIds { get; set; }
+        /// <value>List of loCodes for an agency</value>
+        [DataMember(Name="loCodes", EmitDefaultValue=false)]
+        public List<string> LoCodes { get; set; }
 
         /// <summary>
         /// Additional notes for an agent
@@ -131,6 +126,13 @@ namespace CloselinkAPI.Model
         /// <value>Additional notes for an agent</value>
         [DataMember(Name="note", EmitDefaultValue=false)]
         public string Note { get; set; }
+
+        /// <summary>
+        /// The customer ID of an agent
+        /// </summary>
+        /// <value>The customer ID of an agent</value>
+        [DataMember(Name="customerId", EmitDefaultValue=false)]
+        public string CustomerId { get; set; }
 
         /// <summary>
         /// The external ID of an agent
@@ -146,14 +148,14 @@ namespace CloselinkAPI.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class AgentResponseMessage {\n");
+            sb.Append("class AgentMessage {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  CustomerId: ").Append(CustomerId).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Address: ").Append(Address).Append("\n");
             sb.Append("  Contact: ").Append(Contact).Append("\n");
-            sb.Append("  PortIds: ").Append(PortIds).Append("\n");
+            sb.Append("  LoCodes: ").Append(LoCodes).Append("\n");
             sb.Append("  Note: ").Append(Note).Append("\n");
+            sb.Append("  CustomerId: ").Append(CustomerId).Append("\n");
             sb.Append("  ExternalId: ").Append(ExternalId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -175,15 +177,15 @@ namespace CloselinkAPI.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as AgentResponseMessage);
+            return this.Equals(input as AgentMessage);
         }
 
         /// <summary>
-        /// Returns true if AgentResponseMessage instances are equal
+        /// Returns true if AgentMessage instances are equal
         /// </summary>
-        /// <param name="input">Instance of AgentResponseMessage to be compared</param>
+        /// <param name="input">Instance of AgentMessage to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(AgentResponseMessage input)
+        public bool Equals(AgentMessage input)
         {
             if (input == null)
                 return false;
@@ -193,11 +195,6 @@ namespace CloselinkAPI.Model
                     this.Id == input.Id ||
                     (this.Id != null &&
                     this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.CustomerId == input.CustomerId ||
-                    (this.CustomerId != null &&
-                    this.CustomerId.Equals(input.CustomerId))
                 ) && 
                 (
                     this.Name == input.Name ||
@@ -215,14 +212,19 @@ namespace CloselinkAPI.Model
                     this.Contact.Equals(input.Contact))
                 ) && 
                 (
-                    this.PortIds == input.PortIds ||
-                    this.PortIds != null &&
-                    this.PortIds.SequenceEqual(input.PortIds)
+                    this.LoCodes == input.LoCodes ||
+                    this.LoCodes != null &&
+                    this.LoCodes.SequenceEqual(input.LoCodes)
                 ) && 
                 (
                     this.Note == input.Note ||
                     (this.Note != null &&
                     this.Note.Equals(input.Note))
+                ) && 
+                (
+                    this.CustomerId == input.CustomerId ||
+                    (this.CustomerId != null &&
+                    this.CustomerId.Equals(input.CustomerId))
                 ) && 
                 (
                     this.ExternalId == input.ExternalId ||
@@ -242,18 +244,18 @@ namespace CloselinkAPI.Model
                 int hashCode = 41;
                 if (this.Id != null)
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
-                if (this.CustomerId != null)
-                    hashCode = hashCode * 59 + this.CustomerId.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Address != null)
                     hashCode = hashCode * 59 + this.Address.GetHashCode();
                 if (this.Contact != null)
                     hashCode = hashCode * 59 + this.Contact.GetHashCode();
-                if (this.PortIds != null)
-                    hashCode = hashCode * 59 + this.PortIds.GetHashCode();
+                if (this.LoCodes != null)
+                    hashCode = hashCode * 59 + this.LoCodes.GetHashCode();
                 if (this.Note != null)
                     hashCode = hashCode * 59 + this.Note.GetHashCode();
+                if (this.CustomerId != null)
+                    hashCode = hashCode * 59 + this.CustomerId.GetHashCode();
                 if (this.ExternalId != null)
                     hashCode = hashCode * 59 + this.ExternalId.GetHashCode();
                 return hashCode;

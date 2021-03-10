@@ -1,4 +1,4 @@
-# IO.Swagger.Model.AgentResponseMessage
+# IO.Swagger.Model.AgentMessage
 ## Properties
 
 Name | Type | Description | Notes
@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Name** | **string** | The name of the agency | (required) 
 **Address** | [**AddressMessage**](AddressMessage.md) | Information about the address of an agency | 
 **Contact** | [**ContactMessage**](ContactMessage.md) | Information about the contact details of an agency | 
-**PortIds** | **List&lt;string&gt;** | List of ports of an agency | (required)
+**LoCodes** | **List&lt;string&gt;** | List of loCodes of an agency | (required)
 **Note** | **string** | Additional notes for an agent | 
 **CustomerId** | **string** | The customer ID of an agent | (required) 
 **ExternalId** | **string** | The external ID of an agent | 
