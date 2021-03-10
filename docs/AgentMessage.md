@@ -1,4 +1,4 @@
-# IO.Swagger.Model.AgentMessage
+# CloselinkAPI.Model.AgentMessage
 ## Properties
 
 Name | Type | Description | Notes

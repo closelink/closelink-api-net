@@ -1,4 +1,4 @@
-# IO.Swagger.Api.AgentsApi
+# CloselinkAPI.Api.AgentsApi
 
 All URIs are relative to *https://public-api.closelink.net*
 

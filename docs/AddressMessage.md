@@ -1,4 +1,4 @@
-# IO.Swagger.Model.AddressMessage
+# CloselinkAPI.Model.AddressMessage
 ## Properties
 
 Name | Type | Description | Notes
